@@ -228,19 +228,25 @@ body {
   align-items: center;
   justify-content: center;
   height: var(--header-h);
-  padding: 0 var(--section-pad-x);
+  padding: 0;
   border-bottom: 1px solid var(--border);
   background: rgba(15, 23, 42, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
+/* Same horizontal alignment as .intro / .page-section (content-max + section padding) */
 .nav {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.5rem 1rem;
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--section-pad-x);
+  box-sizing: border-box;
 }
 
 .nav a {
@@ -294,6 +300,7 @@ body {
 
   .nav {
     gap: 0.35rem 0.65rem;
+    justify-content: flex-start;
   }
 
   .nav a {
@@ -382,14 +389,27 @@ main {
 
 .hero-tags {
   margin: 0;
-  max-width: none;
-  white-space: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  font-size: 0.9375rem;
+  max-width: 100%;
+  font-size: clamp(0.875rem, 3.2vw, 0.9375rem);
   font-weight: 500;
   color: var(--text-body);
   line-height: 1.5;
+  text-wrap: balance;
+}
+
+/* Mobile: wrap so copy isn’t clipped (html/body overflow-x: hidden hides horizontal scroll) */
+@media (max-width: 767px) {
+  .hero-lead {
+    max-width: 100%;
+    width: 100%;
+    text-wrap: balance;
+  }
+
+  .hero-tags {
+    white-space: normal;
+    overflow-x: visible;
+    -webkit-overflow-scrolling: auto;
+  }
 }
 
 @media (min-width: 768px) {
@@ -398,6 +418,9 @@ main {
   }
 
   .hero-tags {
+    max-width: none;
+    font-size: 0.9375rem;
+    white-space: nowrap;
     overflow-x: visible;
   }
 }
@@ -405,12 +428,6 @@ main {
 @media (min-width: 1024px) {
   .hero-lead {
     max-width: 56ch;
-  }
-}
-
-@media (max-width: 767px) {
-  .hero-lead {
-    max-width: 100%;
   }
 }
 
