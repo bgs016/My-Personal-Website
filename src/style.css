@@ -397,10 +397,16 @@ main {
   line-height: 1.45;
   letter-spacing: -0.015em;
   color: var(--text);
-  white-space: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 768px) {
+  .hero-lead {
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
 }
 
 .hero-tags {
@@ -413,7 +419,6 @@ main {
   text-wrap: balance;
 }
 
-/* Mobile: hero-lead uses nowrap + overflow-x auto so one line doesn’t clip silently */
 @media (max-width: 767px) {
   .hero-tags {
     white-space: normal;
@@ -565,6 +570,8 @@ code {
   line-height: 1.65;
   color: var(--text-body);
   text-align: start;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .panel-lead strong {
@@ -588,6 +595,8 @@ code {
   letter-spacing: -0.025em;
   position: relative;
   display: inline-block;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .panel-title::after {
@@ -723,6 +732,8 @@ code {
   background: rgba(30, 41, 59, 0.45);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
   scroll-margin-top: calc(var(--header-h) + 12px);
+  min-width: 0;
+  max-width: 100%;
 }
 
 .blog-toc__heading {
@@ -775,6 +786,8 @@ code {
   display: block;
   line-height: 1.35;
   min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* Match topic card titles (.blog-title) */
@@ -965,6 +978,20 @@ code {
   white-space: nowrap;
 }
 
+@media (max-width: 767px) {
+  .fab--back-top {
+    max-width: calc(100vw - 2.5rem);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .fab--back-top .fab__label {
+    white-space: normal;
+    text-align: center;
+    line-height: 1.25;
+  }
+}
+
 @media (max-width: 480px) {
   .blog-back-toc__label {
     position: absolute;
@@ -984,18 +1011,6 @@ code {
     min-height: 2.75rem;
     padding: 0.55rem;
     border-radius: 50%;
-  }
-
-  .fab--back-top {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.75rem;
-    max-width: calc(100vw - 2.5rem);
-  }
-
-  .fab--back-top .fab__label {
-    white-space: normal;
-    text-align: center;
-    line-height: 1.25;
   }
 }
 
@@ -1021,6 +1036,8 @@ code {
     border-color 0.25s ease,
     box-shadow 0.25s ease,
     transform 0.2s ease;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .blog-card:hover {
@@ -1079,6 +1096,8 @@ code {
   line-height: 1.35;
   letter-spacing: -0.02em;
   color: var(--heading);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .blog-excerpt {
@@ -1087,6 +1106,7 @@ code {
   line-height: 1.62;
   color: var(--text-body);
   text-align: start;
+  overflow-wrap: break-word;
 }
 
 .blog-body {
@@ -1101,6 +1121,7 @@ code {
   line-height: 1.7;
   color: var(--text);
   text-align: start;
+  overflow-wrap: break-word;
 }
 
 .blog-body__p:last-child {
@@ -1111,6 +1132,9 @@ code {
   max-width: var(--content-max);
   margin: 0 auto;
   padding: var(--section-gap) var(--section-pad-x);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .section-heading {
@@ -1121,6 +1145,8 @@ code {
   letter-spacing: -0.025em;
   position: relative;
   display: inline-block;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .section-heading::after {
@@ -1150,6 +1176,8 @@ code {
   line-height: 1.65;
   color: var(--text-body);
   text-align: start;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .career-experience-title {
@@ -1309,6 +1337,10 @@ code {
   }
 }
 
+.timeline__content {
+  min-width: 0;
+}
+
 .timeline__panel-body {
   margin: 0;
   padding: 0.75rem 0 0;
@@ -1378,6 +1410,9 @@ code {
 
 .timeline__company-name {
   color: var(--heading);
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .timeline__company-link--external {
@@ -1387,6 +1422,8 @@ code {
   text-decoration: none;
   color: var(--heading);
   transition: color 0.15s ease;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .timeline__company-link--external:hover {
@@ -1434,6 +1471,7 @@ code {
   font-weight: 600;
   color: var(--text);
   line-height: 1.45;
+  overflow-wrap: break-word;
 }
 
 .timeline__role--era {
@@ -1457,6 +1495,7 @@ code {
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
   line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 
 .timeline__meta--range {
@@ -1645,6 +1684,20 @@ code {
   .career-lead {
     margin-bottom: 1.5rem;
   }
+
+  .timeline__company {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .timeline__company-link--external {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .timeline__dates--stacked .timeline__date-range {
+    overflow-wrap: anywhere;
+  }
 }
 
 .section-tint {
@@ -1695,6 +1748,7 @@ code {
   line-height: 1.68;
   color: var(--text-body);
   text-wrap: balance;
+  overflow-wrap: break-word;
 }
 
 .contact-list--centered {
@@ -1842,6 +1896,8 @@ code {
   background: rgba(30, 41, 59, 0.82);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  max-width: min(100%, calc(100vw - 2rem));
+  box-sizing: border-box;
 }
 
 .contact-dock__link {

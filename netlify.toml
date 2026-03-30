@@ -5,3 +5,5 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+# HTTP caching: `npm run build` writes `dist/_headers` (Netlify / Cloudflare Pages). Vercel uses `vercel.json`.

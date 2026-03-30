@@ -1,4 +1,4 @@
-import { copyFileSync } from 'node:fs'
+import { copyFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import type { Connect, Plugin } from 'vite'
 import { defineConfig } from 'vite'
@@ -89,11 +89,41 @@ function copy404Plugin(): { name: string; closeBundle: () => void } {
   }
 }
 
+/**
+ * Netlify / Cloudflare Pages read `dist/_headers`. First match wins — list assets before `/*`.
+ * Prefix matches Vite `base` (e.g. `/repo/` on GitHub Pages project sites).
+ */
+function emitDeployHeadersFile(base: string): Plugin {
+  const prefix = base === '/' ? '' : base.replace(/\/$/, '')
+  return {
+    name: 'emit-deploy-headers',
+    closeBundle() {
+      const assetPath = prefix ? `${prefix}/assets/*` : '/assets/*'
+      const indexPath = prefix ? `${prefix}/index.html` : '/index.html'
+      const notFoundPath = prefix ? `${prefix}/404.html` : '/404.html'
+      const starPath = prefix ? `${prefix}/*` : '/*'
+      const content = `${assetPath}
+  Cache-Control: public, max-age=31536000, immutable
+
+${indexPath}
+  Cache-Control: no-cache, must-revalidate
+
+${notFoundPath}
+  Cache-Control: no-cache, must-revalidate
+
+${starPath}
+  Cache-Control: public, max-age=0, must-revalidate
+`
+      writeFileSync(resolve(process.cwd(), 'dist', '_headers'), content, 'utf8')
+    },
+  }
+}
+
 const base = resolveBase()
 
 export default defineConfig({
   base,
-  plugins: [injectHtmlBaseHref(base), spaFallbackPlugin(), copy404Plugin()],
+  plugins: [injectHtmlBaseHref(base), spaFallbackPlugin(), copy404Plugin(), emitDeployHeadersFile(base)],
   build: {
     target: 'es2020',
     cssMinify: true,

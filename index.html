@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Hint for hosts that do not set Cache-Control (e.g. some static CDNs); hashed /assets/* still long-cached via headers -->
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta
       name="viewport"
