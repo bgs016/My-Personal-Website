@@ -102,18 +102,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <h1 id="intro-title">Guy <span class="name-accent">Shimon</span></h1>
           <p class="hero-lead">Senior product leader across AI, complex HW/SW products, and product strategy</p>
           <p class="hero-tags">Product Management · Behavioral Economics · Inventor on 3 patents</p>
-          <nav class="hero-cta" aria-label="Explore this site">
-            <a href="#panels" data-tab="blog" class="hero-cta__link">Read writing</a>
-            <span class="hero-cta__sep" aria-hidden="true">·</span>
-            <a href="#panels" data-tab="bio" class="hero-cta__link">Bio &amp; patents</a>
-            <span class="hero-cta__sep" aria-hidden="true">·</span>
-            <a
-              href="https://www.linkedin.com/in/guy-shimon-2b99585/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="hero-cta__link hero-cta__link--external"
-            >LinkedIn</a>
-          </nav>
         </div>
         <div class="intro-visual">
           <div class="profile-frame">
