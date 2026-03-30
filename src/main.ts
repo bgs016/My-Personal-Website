@@ -96,25 +96,30 @@ const careerTimelineHtml = `
                   <p class="timeline__date-range"><time datetime="2024-10">Oct 2024</time><span class="timeline__date-sep"> </span>–<span class="timeline__date-sep"> </span>Present</p>
                 </aside>
               </div>
-              <div class="timeline__panel-head">
-                <span class="timeline__dot" aria-hidden="true"></span>
-                <div class="timeline__lead">
-                  <p class="timeline__dates timeline__dates--stacked">
-                    <span class="timeline__date-range"><time datetime="2024-10">Oct 2024</time> – Present</span>
-                  </p>
-                  <h4 class="timeline__company">
-                    <a class="timeline__company-link timeline__company-link--external" href="https://www.notraffic.com" target="_blank" rel="noopener noreferrer">
-                      <span class="timeline__logo-wrap">
-                        <img class="timeline__company-logo" src="/logos/notraffic.png" alt="" width="226" height="256" loading="lazy" decoding="async" />
-                      </span>
-                      <span class="timeline__company-name">NoTraffic</span>
-                    </a>
-                  </h4>
+              <p class="timeline__dates timeline__dates--stacked">
+                <span class="timeline__date-range"><time datetime="2024-10">Oct 2024</time> – Present</span>
+              </p>
+              <div class="timeline__item-top__meta-row">
+                <div class="timeline__rail timeline__rail--head">
+                  <span class="timeline__dot" aria-hidden="true"></span>
+                </div>
+                <div class="timeline__header-col">
+                  <div class="timeline__header-row">
+                    <h4 class="timeline__company">
+                      <a class="timeline__company-link timeline__company-link--external" href="https://www.notraffic.com" target="_blank" rel="noopener noreferrer">
+                        <span class="timeline__logo-wrap">
+                          <img class="timeline__company-logo" src="/logos/notraffic.png" alt="" width="226" height="256" loading="lazy" decoding="async" />
+                        </span>
+                        <span class="timeline__company-name">NoTraffic</span>
+                      </a>
+                    </h4>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="timeline__item-bottom">
               <div class="timeline__gutter-spacer" aria-hidden="true"></div>
+              <div class="timeline__rail timeline__rail--tail" aria-hidden="true"></div>
               <div class="timeline__panel-body">
                 <div class="timeline__content">
                   <p class="timeline__role">Senior Product Line Manager, Mobility Platform</p>
@@ -139,23 +144,28 @@ const careerTimelineHtml = `
                   <p class="timeline__date-range"><time datetime="2021-11">Nov 2021</time><span class="timeline__date-sep"> </span>–<span class="timeline__date-sep"> </span><time datetime="2024-10">Oct 2024</time></p>
                 </aside>
               </div>
-              <div class="timeline__panel-head">
-                <span class="timeline__dot" aria-hidden="true"></span>
-                <div class="timeline__lead">
-                  <p class="timeline__dates timeline__dates--stacked">
-                    <span class="timeline__date-range"><time datetime="2021-11">Nov 2021</time> – <time datetime="2024-10">Oct 2024</time></span>
-                  </p>
-                  <h4 class="timeline__company">
-                    <span class="timeline__logo-wrap timeline__logo-wrap--radware">
-                      <img class="timeline__company-logo" src="/logos/radware.png" alt="" width="253" height="256" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="timeline__company-name">Radware</span>
-                  </h4>
+              <p class="timeline__dates timeline__dates--stacked">
+                <span class="timeline__date-range"><time datetime="2021-11">Nov 2021</time> – <time datetime="2024-10">Oct 2024</time></span>
+              </p>
+              <div class="timeline__item-top__meta-row">
+                <div class="timeline__rail timeline__rail--head">
+                  <span class="timeline__dot" aria-hidden="true"></span>
+                </div>
+                <div class="timeline__header-col">
+                  <div class="timeline__header-row">
+                    <h4 class="timeline__company">
+                      <span class="timeline__logo-wrap timeline__logo-wrap--radware">
+                        <img class="timeline__company-logo" src="/logos/radware.png" alt="" width="253" height="256" loading="lazy" decoding="async" />
+                      </span>
+                      <span class="timeline__company-name">Radware</span>
+                    </h4>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="timeline__item-bottom">
               <div class="timeline__gutter-spacer" aria-hidden="true"></div>
+              <div class="timeline__rail timeline__rail--tail" aria-hidden="true"></div>
               <div class="timeline__panel-body">
                 <div class="timeline__content">
                   <p class="timeline__role">Director of Product Management</p>
@@ -180,23 +190,28 @@ const careerTimelineHtml = `
                   <p class="timeline__date-range"><time datetime="1999-11">Nov 1999</time><span class="timeline__date-sep"> </span>–<span class="timeline__date-sep"> </span><time datetime="2021-11">Nov 2021</time></p>
                 </aside>
               </div>
-              <div class="timeline__panel-head">
-                <span class="timeline__dot" aria-hidden="true"></span>
-                <div class="timeline__lead">
-                  <p class="timeline__dates timeline__dates--stacked">
-                    <span class="timeline__date-range"><time datetime="1999-11">Nov 1999</time> – <time datetime="2021-11">Nov 2021</time></span>
-                  </p>
-                  <h4 class="timeline__company">
-                    <span class="timeline__logo-wrap timeline__logo-wrap--motorola">
-                      <img class="timeline__company-logo" src="/logos/motorola-solutions.png" alt="" width="298" height="256" loading="lazy" decoding="async" />
-                    </span>
-                    <span class="timeline__company-name">Motorola Solutions</span>
-                  </h4>
+              <p class="timeline__dates timeline__dates--stacked">
+                <span class="timeline__date-range"><time datetime="1999-11">Nov 1999</time> – <time datetime="2021-11">Nov 2021</time></span>
+              </p>
+              <div class="timeline__item-top__meta-row">
+                <div class="timeline__rail timeline__rail--head">
+                  <span class="timeline__dot" aria-hidden="true"></span>
+                </div>
+                <div class="timeline__header-col">
+                  <div class="timeline__header-row">
+                    <h4 class="timeline__company">
+                      <span class="timeline__logo-wrap timeline__logo-wrap--motorola">
+                        <img class="timeline__company-logo" src="/logos/motorola-solutions.png" alt="" width="298" height="256" loading="lazy" decoding="async" />
+                      </span>
+                      <span class="timeline__company-name">Motorola Solutions</span>
+                    </h4>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="timeline__item-bottom">
               <div class="timeline__gutter-spacer" aria-hidden="true"></div>
+              <div class="timeline__rail timeline__rail--tail" aria-hidden="true"></div>
               <div class="timeline__panel-body">
                 <div class="timeline__content">
                   <p class="timeline__role timeline__role--era">Product, Engineering, and Technology Leadership</p>

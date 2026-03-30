@@ -1,6 +1,7 @@
 :root {
   color-scheme: dark;
   --timeline-date-col: 9rem;
+  --timeline-rail-width: 18px;
   --timeline-date-color: #c5d4e6;
   --timeline-logo-box: 3.5rem;
   --bg: #0f172a;
@@ -801,20 +802,21 @@ code {
 .timeline__item-top {
   display: grid;
   grid-template-columns: 1fr;
-  align-items: center;
-  column-gap: 1rem;
+  align-items: stretch;
+  column-gap: 0.75rem;
 }
 
 .timeline__item-bottom {
   display: grid;
   grid-template-columns: 1fr;
-  column-gap: 1rem;
+  column-gap: 0.75rem;
 }
 
 @media (min-width: 768px) {
   .timeline__item-top,
   .timeline__item-bottom {
-    grid-template-columns: var(--timeline-date-col) minmax(0, 1fr);
+    grid-template-columns: var(--timeline-date-col) var(--timeline-rail-width) minmax(0, 1fr);
+    column-gap: 1rem;
   }
 }
 
@@ -826,7 +828,56 @@ code {
   display: none;
 }
 
+.timeline__item-top__meta-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 0.75rem;
+  min-width: 0;
+}
+
+.timeline__rail {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 var(--timeline-rail-width);
+  min-width: 0;
+}
+
+.timeline__rail--head {
+  border-left: 1px solid rgba(6, 182, 212, 0.22);
+  align-self: stretch;
+}
+
+.timeline__rail--tail {
+  border-left: 1px solid rgba(6, 182, 212, 0.22);
+  align-self: stretch;
+  min-height: 0.75rem;
+}
+
+.timeline__header-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.timeline__header-row {
+  min-width: 0;
+}
+
 @media (min-width: 768px) {
+  .timeline__item-top__meta-row {
+    display: contents;
+  }
+
+  .timeline__rail {
+    flex: initial;
+    width: 100%;
+  }
+
   .timeline__date-gutter {
     display: flex;
     align-items: center;
@@ -841,13 +892,36 @@ code {
   }
 }
 
+@media (max-width: 767px) {
+  .timeline__item-top {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    row-gap: 0.75rem;
+  }
+
+  .timeline__item-bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    column-gap: 0.75rem;
+  }
+
+  .timeline__panel-body {
+    flex: 1;
+    padding: 0.75rem 0 0;
+    border-left: none;
+    min-width: 0;
+  }
+}
+
 .timeline__dates--side {
   display: block;
   text-align: end;
 }
 
 .timeline__dates--stacked {
-  margin: 0 0 0.75rem;
+  margin: 0;
 }
 
 @media (min-width: 768px) {
@@ -856,25 +930,23 @@ code {
   }
 }
 
-.timeline__panel-head {
-  position: relative;
+.timeline__panel-body {
   margin: 0;
-  padding: 0 0 0 1.35rem;
-  border-left: 1px solid rgba(6, 182, 212, 0.22);
+  padding: 0.75rem 0 0;
   min-width: 0;
 }
 
-.timeline__panel-body {
-  margin: 0;
-  padding: 0.75rem 0 0 1.35rem;
-  border-left: 1px solid rgba(6, 182, 212, 0.22);
-  min-width: 0;
+@media (min-width: 768px) {
+  .timeline__panel-body {
+    padding-top: 0.75rem;
+  }
 }
 
 .timeline__dot {
   position: absolute;
-  left: calc(-6px - 0.5px);
-  top: 0.4rem;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 11px;
   height: 11px;
   border-radius: 50%;
@@ -884,17 +956,8 @@ code {
 }
 
 .timeline__item--major .timeline__dot {
-  top: 0.45rem;
   width: 13px;
   height: 13px;
-  left: calc(-7px - 0.5px);
-}
-
-.timeline__lead {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  min-width: 0;
 }
 
 .timeline__date-range {
@@ -976,8 +1039,8 @@ code {
 }
 
 .timeline__logo-wrap--motorola .timeline__company-logo {
-  max-width: 55%;
-  max-height: 55%;
+  max-width: 68%;
+  max-height: 68%;
 }
 
 .timeline__role {
@@ -1180,19 +1243,6 @@ code {
 @media (max-width: 767px) {
   .timeline__item {
     padding-bottom: 2rem;
-  }
-
-  .timeline__panel-head,
-  .timeline__panel-body {
-    padding-left: 1.1rem;
-  }
-
-  .timeline__dot {
-    left: calc(-6px - 0.5px);
-  }
-
-  .timeline__item--major .timeline__dot {
-    left: calc(-7px - 0.5px);
   }
 
   .timeline__nested {
