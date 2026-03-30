@@ -391,13 +391,16 @@ main {
 
 .hero-lead {
   margin: 0 0 0.4rem;
-  max-width: 38ch;
+  max-width: 100%;
   font-size: clamp(1.0625rem, 2.4vw, 1.125rem);
   font-weight: 500;
   line-height: 1.45;
   letter-spacing: -0.015em;
   color: var(--text);
-  text-wrap: balance;
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }
 
 .hero-tags {
@@ -410,14 +413,8 @@ main {
   text-wrap: balance;
 }
 
-/* Mobile: wrap so copy isn’t clipped (html/body overflow-x: hidden hides horizontal scroll) */
+/* Mobile: hero-lead uses nowrap + overflow-x auto so one line doesn’t clip silently */
 @media (max-width: 767px) {
-  .hero-lead {
-    max-width: 100%;
-    width: 100%;
-    text-wrap: balance;
-  }
-
   .hero-tags {
     white-space: normal;
     overflow-x: visible;
@@ -426,21 +423,11 @@ main {
 }
 
 @media (min-width: 768px) {
-  .hero-lead {
-    max-width: 50ch;
-  }
-
   .hero-tags {
     max-width: none;
     font-size: 0.9375rem;
     white-space: nowrap;
     overflow-x: visible;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-lead {
-    max-width: 56ch;
   }
 }
 
