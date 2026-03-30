@@ -73,6 +73,8 @@ body {
   overflow-x: hidden;
   /* Prevent long URLs / patent IDs from forcing horizontal scroll */
   overflow-wrap: break-word;
+  /* Ragged-right body copy — never justified (better readability on web) */
+  text-align: start;
 }
 
 #app {
@@ -468,6 +470,7 @@ code {
   font-size: 1.0625rem;
   line-height: 1.65;
   color: var(--text-body);
+  text-align: start;
 }
 
 .panel-lead strong {
@@ -511,6 +514,7 @@ code {
   line-height: 1.72;
   font-size: 1.0625rem;
   letter-spacing: 0.01em;
+  text-align: start;
 }
 
 .prose--bio .panel-text {
@@ -698,6 +702,7 @@ code {
   font-size: 1rem;
   line-height: 1.62;
   color: var(--text-body);
+  text-align: start;
 }
 
 .blog-body {
@@ -712,6 +717,7 @@ code {
   font-size: 0.9375rem;
   line-height: 1.7;
   color: var(--text);
+  text-align: start;
 }
 
 .blog-body__p:last-child {
