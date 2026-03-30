@@ -42,6 +42,21 @@
   -webkit-font-smoothing: antialiased;
 }
 
+/* Wider reading measure on tablet/desktop — more words per line without ultra-wide lines */
+@media (min-width: 768px) {
+  :root {
+    --prose-max: 70ch;
+    --prose-bio: 68ch;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --prose-max: 74ch;
+    --prose-bio: 72ch;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -323,6 +338,26 @@ main {
   color: var(--text-body);
   line-height: 1.5;
   text-wrap: balance;
+}
+
+@media (min-width: 768px) {
+  .hero-lead {
+    max-width: 50ch;
+  }
+
+  .hero-tags {
+    max-width: 56ch;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-lead {
+    max-width: 56ch;
+  }
+
+  .hero-tags {
+    max-width: 62ch;
+  }
 }
 
 @media (max-width: 767px) {
