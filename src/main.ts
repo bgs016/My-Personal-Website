@@ -188,7 +188,7 @@ const careerTimelineHtml = `
                   </p>
                   <h4 class="timeline__company">
                     <span class="timeline__logo-wrap timeline__logo-wrap--motorola">
-                      <img class="timeline__company-logo" src="/logos/motorola-solutions.png" alt="" width="516" height="256" loading="lazy" decoding="async" />
+                      <img class="timeline__company-logo" src="/logos/motorola-solutions.png" alt="" width="298" height="256" loading="lazy" decoding="async" />
                     </span>
                     <span class="timeline__company-name">Motorola Solutions</span>
                   </h4>

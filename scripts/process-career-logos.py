@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Regenerate public/logos/*.png with transparent backgrounds and uniform height.
 
-NoTraffic and Motorola are sourced from the composite strip; Radware is maintained
-as public/logos/radware.png (official dot-cluster mark) and only keyed/resized here.
+NoTraffic is keyed/resized from public/logos/notraffic.png.
+Radware is keyed/resized from public/logos/radware.png.
+Motorola is trimmed/resized from scripts/motorola-solutions-source.png (official vertical
+mark — do not apply key_black or black text is removed).
 
 Requires Pillow: python3 -m venv .venv && .venv/bin/pip install Pillow
 Run from repo root: .venv/bin/python scripts/process-career-logos.py
@@ -16,8 +18,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 PUBLIC_LOGOS = ROOT / "public" / "logos"
 COMPOSITE = ROOT / "scripts" / "logo-composite-source.png"
-
-MOTOROLA_BOX = (0, 308, 1024, 428)
+MOTOROLA_SOURCE = ROOT / "scripts" / "motorola-solutions-source.png"
 
 TARGET_HEIGHT_PX = 256
 
@@ -53,9 +54,8 @@ def resize_to_height(im: Image.Image, target_h: int) -> Image.Image:
 def main() -> None:
     if not COMPOSITE.is_file():
         raise SystemExit(f"Missing {COMPOSITE}")
-
-    comp = Image.open(COMPOSITE).convert("RGBA")
-    motor_src = comp.crop(MOTOROLA_BOX)
+    if not MOTOROLA_SOURCE.is_file():
+        raise SystemExit(f"Missing {MOTOROLA_SOURCE}")
 
     notraffic_path = PUBLIC_LOGOS / "notraffic.png"
     radware_path = PUBLIC_LOGOS / "radware.png"
@@ -66,12 +66,13 @@ def main() -> None:
 
     notraffic_raw = Image.open(notraffic_path).convert("RGBA")
     radware_raw = Image.open(radware_path).convert("RGBA")
+    motorola_raw = Image.open(MOTOROLA_SOURCE).convert("RGBA")
 
     nt = trim_alpha(key_black(notraffic_raw))
     target_h = min(TARGET_HEIGHT_PX, max(64, nt.size[1]))
     nt = resize_to_height(nt, target_h)
 
-    motor = resize_to_height(trim_alpha(key_black(motor_src)), target_h)
+    motor = resize_to_height(trim_alpha(motorola_raw), target_h)
     rad = resize_to_height(trim_alpha(key_black(radware_raw)), target_h)
 
     outputs = [
