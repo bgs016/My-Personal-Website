@@ -344,12 +344,14 @@ main {
 
 .hero-tags {
   margin: 0;
-  max-width: 42ch;
+  max-width: none;
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   font-size: 0.9375rem;
   font-weight: 500;
   color: var(--text-body);
   line-height: 1.5;
-  text-wrap: balance;
 }
 
 @media (min-width: 768px) {
@@ -358,7 +360,7 @@ main {
   }
 
   .hero-tags {
-    max-width: 56ch;
+    overflow-x: visible;
   }
 }
 
@@ -366,18 +368,10 @@ main {
   .hero-lead {
     max-width: 56ch;
   }
-
-  .hero-tags {
-    max-width: 62ch;
-  }
 }
 
 @media (max-width: 767px) {
   .hero-lead {
-    max-width: 100%;
-  }
-
-  .hero-tags {
     max-width: 100%;
   }
 }
