@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Regenerate public/logos/*.png with transparent backgrounds and uniform height.
 
+NoTraffic and Motorola are sourced from the composite strip; Radware is maintained
+as public/logos/radware.png (official dot-cluster mark) and only keyed/resized here.
+
 Requires Pillow: python3 -m venv .venv && .venv/bin/pip install Pillow
 Run from repo root: .venv/bin/python scripts/process-career-logos.py
 """
@@ -14,12 +17,8 @@ ROOT = Path(__file__).resolve().parent.parent
 PUBLIC_LOGOS = ROOT / "public" / "logos"
 COMPOSITE = ROOT / "scripts" / "logo-composite-source.png"
 
-# Vertical slices in the 1024×1024 composite (Motorola → NoTraffic wordmark → Radware, top to bottom).
-# Bright (white) rows end ~y=480; Radware uses darker red/coral on black (row max ~310), so it lives below that band.
 MOTOROLA_BOX = (0, 308, 1024, 428)
-RADWARE_BOX = (0, 485, 1024, 548)
 
-# Cap export height so files stay web-sized; all three match this height after processing.
 TARGET_HEIGHT_PX = 256
 
 
@@ -43,7 +42,6 @@ def trim_alpha(im: Image.Image) -> Image.Image:
 
 
 def resize_to_height(im: Image.Image, target_h: int) -> Image.Image:
-    """Scale so height equals target_h; preserve aspect ratio."""
     w, h = im.size
     if h == target_h:
         return im
@@ -58,20 +56,23 @@ def main() -> None:
 
     comp = Image.open(COMPOSITE).convert("RGBA")
     motor_src = comp.crop(MOTOROLA_BOX)
-    rad_src = comp.crop(RADWARE_BOX)
 
     notraffic_path = PUBLIC_LOGOS / "notraffic.png"
+    radware_path = PUBLIC_LOGOS / "radware.png"
     if not notraffic_path.is_file():
         raise SystemExit(f"Missing {notraffic_path}")
-    # Source for NoTraffic: current file may already be processed; re-key from standalone if present
+    if not radware_path.is_file():
+        raise SystemExit(f"Missing {radware_path}")
+
     notraffic_raw = Image.open(notraffic_path).convert("RGBA")
+    radware_raw = Image.open(radware_path).convert("RGBA")
 
     nt = trim_alpha(key_black(notraffic_raw))
     target_h = min(TARGET_HEIGHT_PX, max(64, nt.size[1]))
     nt = resize_to_height(nt, target_h)
 
     motor = resize_to_height(trim_alpha(key_black(motor_src)), target_h)
-    rad = resize_to_height(trim_alpha(key_black(rad_src)), target_h)
+    rad = resize_to_height(trim_alpha(key_black(radware_raw)), target_h)
 
     outputs = [
         ("notraffic.png", nt),
