@@ -1,3 +1,5 @@
+import { publicUrl } from './utils/publicUrl'
+
 export const careerTimelineHtml = `
     <section id="career-path" class="section section-career section-surface" aria-labelledby="career-heading">
       <div class="prose prose--career">
@@ -26,7 +28,7 @@ export const careerTimelineHtml = `
                     <h4 class="timeline__company">
                       <a class="timeline__company-link timeline__company-link--external" href="https://www.notraffic.com" target="_blank" rel="noopener noreferrer">
                         <span class="timeline__logo-wrap">
-                          <img class="timeline__company-logo" src="/logos/notraffic.png" alt="" width="226" height="256" loading="lazy" decoding="async" />
+                          <img class="timeline__company-logo" src="${publicUrl('logos/notraffic.png')}" alt="" width="226" height="256" loading="lazy" decoding="async" />
                         </span>
                         <span class="timeline__company-name">NoTraffic</span>
                       </a>
@@ -73,7 +75,7 @@ export const careerTimelineHtml = `
                   <div class="timeline__header-row">
                     <h4 class="timeline__company">
                       <span class="timeline__logo-wrap timeline__logo-wrap--radware">
-                        <img class="timeline__company-logo" src="/logos/radware.png" alt="" width="253" height="256" loading="lazy" decoding="async" />
+                        <img class="timeline__company-logo" src="${publicUrl('logos/radware.png')}" alt="" width="253" height="256" loading="lazy" decoding="async" />
                       </span>
                       <span class="timeline__company-name">Radware</span>
                     </h4>
@@ -119,7 +121,7 @@ export const careerTimelineHtml = `
                   <div class="timeline__header-row">
                     <h4 class="timeline__company">
                       <span class="timeline__logo-wrap timeline__logo-wrap--motorola">
-                        <img class="timeline__company-logo" src="/logos/motorola-solutions.png" alt="" width="298" height="256" loading="lazy" decoding="async" />
+                        <img class="timeline__company-logo" src="${publicUrl('logos/motorola-solutions.png')}" alt="" width="298" height="256" loading="lazy" decoding="async" />
                       </span>
                       <span class="timeline__company-name">Motorola Solutions</span>
                     </h4>

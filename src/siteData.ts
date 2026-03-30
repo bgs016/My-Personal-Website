@@ -1,7 +1,9 @@
 export const year = new Date().getFullYear()
 
+import { publicUrl } from './utils/publicUrl'
+
 /** Served from <code>public/profile-420w.png</code> (resampled for hero; full-size <code>profile.png</code> kept for srcset). */
-export const PROFILE_IMG_SRC = '/profile-420w.png'
+export const PROFILE_IMG_SRC = publicUrl('profile-420w.png')
 
 /** Phone — <code>href</code> must be E.164. */
 export const CONTACT_PHONE_HREF = 'tel:+972524800434'

@@ -10,6 +10,7 @@ import {
 } from './siteData'
 import { setupBackToTop } from './setupBackToTop'
 import { setupBlogToc } from './setupBlogToc'
+import { publicUrl } from './utils/publicUrl'
 import { blogPostSlug, escapeHtml } from './utils/html'
 import { hrefForRoute, pathnameToRoute, type SiteRoute } from './routes'
 
@@ -59,7 +60,7 @@ function renderIntro(): string {
             <img
               class="profile-img"
               src="${PROFILE_IMG_SRC}"
-              srcset="/profile-420w.png 420w, /profile.png 471w"
+              srcset="${publicUrl('profile-420w.png')} 420w, ${publicUrl('profile.png')} 471w"
               sizes="(max-width: 767px) min(48vw, 198px), min(210px, 22vw)"
               width="420"
               height="913"

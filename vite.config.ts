@@ -1,7 +1,41 @@
 import { copyFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import type { Connect } from 'vite'
+import type { Connect, Plugin } from 'vite'
 import { defineConfig } from 'vite'
+
+/**
+ * GitHub Pages project sites are served at https://<user>.github.io/<repo>/
+ * Vite must use base=/repo/ so /assets/* resolves under the repo (otherwise CSS/JS 404).
+ * Vercel/Netlify/Cloudflare host at domain root — keep base=/.
+ */
+function resolveBase(): string {
+  if (process.env.VERCEL || process.env.NETLIFY || process.env.CF_PAGES) {
+    return '/'
+  }
+
+  const explicit = process.env.VITE_BASE_URL?.trim()
+  if (explicit) {
+    return explicit.endsWith('/') ? explicit : `${explicit}/`
+  }
+
+  const gh = process.env.GITHUB_REPOSITORY
+  if (gh) {
+    const repo = gh.split('/')[1]
+    if (repo) return `/${repo}/`
+  }
+
+  return '/'
+}
+
+/** Root-absolute `/favicon.svg` in index.html does not get `base`; rewrite for subpath deploys. */
+function injectHtmlBaseHref(base: string): Plugin {
+  return {
+    name: 'inject-html-base-href',
+    transformIndexHtml(html: string) {
+      return html.replace(/href="\/favicon\.svg"/g, `href="${base}favicon.svg"`)
+    },
+  }
+}
 
 function spaFallbackMiddleware(middlewares: Connect.Server): void {
   middlewares.use((req, _res, next) => {
@@ -51,8 +85,11 @@ function copy404Plugin(): { name: string; closeBundle: () => void } {
   }
 }
 
+const base = resolveBase()
+
 export default defineConfig({
-  plugins: [spaFallbackPlugin(), copy404Plugin()],
+  base,
+  plugins: [injectHtmlBaseHref(base), spaFallbackPlugin(), copy404Plugin()],
   build: {
     target: 'es2020',
     cssMinify: true,
