@@ -91,7 +91,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
       <a href="#panels" data-tab="bio" id="nav-bio" class="nav-link">Bio</a>
-      <a href="#panels" data-tab="blog" id="nav-blog" class="nav-link">Writing</a>
+      <a href="#panels" data-tab="blog" id="nav-blog" class="nav-link">Blog</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -162,7 +162,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         hidden
       >
         <div class="prose prose--blog">
-        <h2 class="panel-title" id="panel-heading-blog">Writing</h2>
+        <h2 class="panel-title" id="panel-heading-blog">Blog</h2>
         <p class="panel-lead">
           Notes on <strong>product management</strong> and <strong>behavioral economics</strong> — frameworks, trade-offs, and field notes from building complex products.
         </p>
