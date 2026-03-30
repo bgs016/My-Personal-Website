@@ -52,7 +52,7 @@ function renderIntro(): string {
       <div class="intro-grid">
         <div class="intro-copy">
           <h1 id="intro-title">Guy <span class="name-accent">Shimon</span></h1>
-          <p class="hero-lead">Senior product leader across AI, complex HW/SW products, and product strategy</p>
+          <p class="hero-lead">Senior product leader in AI, complex HW/SW products, and product strategy.</p>
           <p class="hero-tags">Product Management · Behavioral Economics · Inventor on 3 patents</p>
         </div>
         <div class="intro-visual">
