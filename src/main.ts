@@ -204,7 +204,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </section>
   </main>
   <footer class="site-footer">
-    <p>© ${year} — Guy Shimon · Personal site</p>
+    <div class="site-footer__inner">
+      <p class="site-footer__copy">© ${year} - Guy Shimon</p>
+      <p class="site-footer__quote">“It takes a long time to become young.”</p>
+      <p class="site-footer__attr"><span class="site-footer__dash" aria-hidden="true">— </span>Pablo Picasso</p>
+    </div>
   </footer>
   </div>
 
