@@ -1,5 +1,4 @@
 import { blogPosts } from './blogPosts'
-import { careerTimelineHtml } from './careerTimelineHtml'
 import {
   bioParagraphs,
   CONTACT_PHONE_HREF,
@@ -60,9 +59,13 @@ function renderIntro(): string {
             <img
               class="profile-img"
               src="${PROFILE_IMG_SRC}"
-              width="210"
-              height="210"
+              srcset="/profile-420w.png 420w, /profile.png 471w"
+              sizes="(max-width: 767px) min(48vw, 198px), min(210px, 22vw)"
+              width="420"
+              height="913"
               alt="Guy Shimon"
+              fetchpriority="high"
+              decoding="async"
             />
           </div>
         </div>
@@ -273,7 +276,7 @@ function renderHeader(): string {
   </header>`
 }
 
-function renderMain(route: SiteRoute): string {
+async function renderMain(route: SiteRoute): Promise<string> {
   switch (route) {
     case 'home':
       return `
@@ -281,11 +284,13 @@ function renderMain(route: SiteRoute): string {
     ${renderIntro()}
     ${renderBioSection()}
   </main>`
-    case 'career':
+    case 'career': {
+      const { careerTimelineHtml } = await import('./careerTimelineHtml')
       return `
   <main id="main" class="main-animate page-main">
     ${careerTimelineHtml}
   </main>`
+    }
     case 'blog':
       return `
   <main id="main" class="main-animate page-main">
@@ -329,7 +334,7 @@ function scrollToBlogPostIfHash(): void {
   })
 }
 
-export function mountApp(): void {
+export async function mountApp(): Promise<void> {
   blogTocCleanup?.()
   blogTocCleanup = null
   backToTopCleanup?.()
@@ -337,6 +342,7 @@ export function mountApp(): void {
 
   const route = pathnameToRoute(location.pathname)
   const app = document.querySelector<HTMLDivElement>('#app')!
+  const mainHtml = await renderMain(route)
   app.innerHTML = `
   <div class="ambient-bg" aria-hidden="true">
     <div class="ambient-glow ambient-glow--cyan"></div>
@@ -345,7 +351,7 @@ export function mountApp(): void {
   <a class="skip" href="#main">Skip to content</a>
   <div class="page-layer">
   ${renderHeader()}
-  ${renderMain(route)}
+  ${mainHtml}
   ${renderFooter()}
   </div>
   ${route !== 'blog' ? renderBackToTopButton() : ''}

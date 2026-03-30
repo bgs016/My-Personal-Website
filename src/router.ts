@@ -9,7 +9,7 @@ function isAppPath(pathname: string): boolean {
 
 export function initRouter(): void {
   window.addEventListener('popstate', () => {
-    mountApp()
+    void mountApp()
   })
 
   document.addEventListener('click', (e) => {
@@ -38,6 +38,6 @@ export function initRouter(): void {
 
     e.preventDefault()
     history.pushState({}, '', u.pathname + u.search + u.hash)
-    mountApp()
+    void mountApp()
   })
 }

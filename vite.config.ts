@@ -53,4 +53,8 @@ function copy404Plugin(): { name: string; closeBundle: () => void } {
 
 export default defineConfig({
   plugins: [spaFallbackPlugin(), copy404Plugin()],
+  build: {
+    target: 'es2020',
+    cssMinify: true,
+  },
 })

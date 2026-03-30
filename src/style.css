@@ -67,6 +67,26 @@
   }
 }
 
+/* Large desktop: slightly wider shell without runaway line length (read stacks still cap prose) */
+@media (min-width: 1440px) {
+  :root {
+    --content-max: min(1180px, 92vw);
+  }
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --content-max: min(1240px, 90vw);
+  }
+}
+
+/* Very small phones: slightly smaller base type for fit without changing scale elsewhere */
+@media (max-width: 380px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -130,6 +150,17 @@ body {
   filter: blur(150px);
 }
 
+@media (max-width: 767px) {
+  .ambient-glow {
+    opacity: 0.55;
+    filter: blur(72px);
+  }
+
+  .ambient-glow--blue {
+    filter: blur(88px);
+  }
+}
+
 .page-layer {
   position: relative;
   z-index: 1;
@@ -156,6 +187,12 @@ body {
 @media (prefers-reduced-motion: no-preference) {
   .main-animate {
     animation: fadeInUp 0.75s ease-out forwards;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (max-width: 767px) {
+  .main-animate {
+    animation-duration: 0.45s;
   }
 }
 
@@ -219,6 +256,7 @@ body {
   font-size: 0.9375rem;
   font-weight: 500;
   line-height: 1.2;
+  touch-action: manipulation;
   transition:
     color 0.15s ease,
     background 0.15s ease,
@@ -867,6 +905,16 @@ code {
   .fab--back-top {
     right: max(1.5rem, env(safe-area-inset-right));
     bottom: calc(var(--dock-h) + max(1.5rem, env(safe-area-inset-bottom, 0px)));
+  }
+}
+
+@media (max-width: 767px) {
+  .site-header,
+  .blog-card,
+  .contact-dock__inner,
+  .fab {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 }
 
