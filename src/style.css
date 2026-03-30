@@ -739,10 +739,7 @@ code {
   width: 100%;
   box-sizing: border-box;
   margin: 0;
-  padding: 0.5rem 0.5rem;
-  font-size: 0.9375rem;
-  line-height: 1.45;
-  color: var(--text);
+  padding: 0.6rem 0.5rem;
   text-align: start;
   text-decoration: none;
   cursor: pointer;
@@ -762,14 +759,18 @@ code {
 /* Inline title + arrow so the chevron sits next to the title, not at the row’s far edge */
 .blog-toc__link-title-row {
   display: block;
-  line-height: 1.45;
+  line-height: 1.35;
   min-width: 0;
 }
 
+/* Match topic card titles (.blog-title) */
 .blog-toc__link-text {
   display: inline;
+  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
   font-weight: 600;
-  color: var(--text);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--heading);
   text-decoration: none;
   transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
@@ -791,8 +792,8 @@ code {
 
 .blog-toc__arrow-icon {
   display: block;
-  width: 1rem;
-  height: 1rem;
+  width: 1.125rem;
+  height: 1.125rem;
 }
 
 .blog-toc__link:hover {
@@ -1648,10 +1649,73 @@ code {
   margin-bottom: 0.5rem;
 }
 
+/* Contact page: centered, focused column (closing section) */
+.section-contact {
+  scroll-margin-top: calc(var(--header-h) + 12px);
+}
+
+.contact-section__inner {
+  width: 100%;
+  max-width: min(34rem, 100%);
+  margin-inline: auto;
+}
+
+.contact-section__prose {
+  text-align: center;
+}
+
+.section-heading--contact {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-contact .section-heading--contact::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.contact-section__lead {
+  margin: 0 auto 1.75rem;
+  max-width: 42ch;
+  font-size: 1.0625rem;
+  line-height: 1.68;
+  color: var(--text-body);
+  text-wrap: balance;
+}
+
+.contact-list--centered {
+  margin: 0.35rem auto 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.contact-list--centered li {
+  margin-bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-list--centered .contact-list__link {
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
 .contact-list {
   margin: 0.75rem 0 0;
   padding: 0;
   list-style: none;
+}
+
+.contact-list.contact-list--centered {
+  margin-top: 0.35rem;
 }
 
 .contact-list li {
