@@ -817,11 +817,23 @@ code {
 }
 
 .timeline__company {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
   margin: 0 0 0.35rem;
   font-size: clamp(1.125rem, 2.2vw, 1.3125rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.25;
+}
+
+.timeline__company-logo {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9px;
+  object-fit: contain;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .timeline__company a {
@@ -1052,6 +1064,11 @@ code {
   .timeline__nested {
     margin-top: 1.35rem;
     padding-left: 0.75rem;
+  }
+
+  .timeline__company-logo {
+    width: 2.25rem;
+    height: 2.25rem;
   }
 
   .career-lead {

@@ -86,13 +86,16 @@ const careerTimelineHtml = `
     <section id="career-path" class="section section-career section-surface" aria-labelledby="career-heading">
       <div class="prose prose--career">
         <h2 id="career-heading" class="section-heading">Career Path</h2>
-        <p class="career-lead">Professional experience and progression across product, engineering, and technology leadership</p>
+        <p class="career-lead">A progression across engineering, product management, and strategic product leadership in mobility, cybersecurity, and public safety technologies.</p>
         <h3 class="career-experience-title" id="career-experience">Experience</h3>
         <div class="timeline">
           <article class="timeline__item">
             <span class="timeline__dot" aria-hidden="true"></span>
             <div class="timeline__content">
-              <h4 class="timeline__company"><a href="https://www.linkedin.com/company/notraffic/" target="_blank" rel="noopener noreferrer">NoTraffic</a></h4>
+              <h4 class="timeline__company">
+                <img class="timeline__company-logo" src="/logos/notraffic.svg" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                <a href="https://www.linkedin.com/company/notraffic/" target="_blank" rel="noopener noreferrer">NoTraffic</a>
+              </h4>
               <p class="timeline__role">Senior Product Line Manager, Mobility Platform</p>
               <p class="timeline__meta"><time datetime="2024-10">Oct 2024</time> – Present</p>
               <div class="timeline__body">
@@ -110,7 +113,10 @@ const careerTimelineHtml = `
           <article class="timeline__item">
             <span class="timeline__dot" aria-hidden="true"></span>
             <div class="timeline__content">
-              <h4 class="timeline__company"><a href="https://www.linkedin.com/company/radware/" target="_blank" rel="noopener noreferrer">Radware</a></h4>
+              <h4 class="timeline__company">
+                <img class="timeline__company-logo" src="/logos/radware.svg" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                <a href="https://www.linkedin.com/company/radware/" target="_blank" rel="noopener noreferrer">Radware</a>
+              </h4>
               <p class="timeline__role">Director of Product Management</p>
               <p class="timeline__meta"><time datetime="2021-11">Nov 2021</time> – <time datetime="2024-10">Oct 2024</time></p>
               <div class="timeline__body">
@@ -128,7 +134,10 @@ const careerTimelineHtml = `
           <article class="timeline__item timeline__item--major">
             <span class="timeline__dot" aria-hidden="true"></span>
             <div class="timeline__content">
-              <h4 class="timeline__company"><a href="https://www.linkedin.com/company/motorolasolutions/" target="_blank" rel="noopener noreferrer">Motorola Solutions</a></h4>
+              <h4 class="timeline__company">
+                <img class="timeline__company-logo" src="/logos/motorola-solutions.svg" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                <a href="https://www.linkedin.com/company/motorolasolutions/" target="_blank" rel="noopener noreferrer">Motorola Solutions</a>
+              </h4>
               <p class="timeline__role timeline__role--era">Product, Engineering, and Technology Leadership</p>
               <p class="timeline__meta timeline__meta--range"><time datetime="1999-11">Nov 1999</time> – <time datetime="2021-11">Nov 2021</time></p>
               <div class="timeline__body">
