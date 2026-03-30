@@ -1,6 +1,6 @@
 :root {
   color-scheme: dark;
-  --timeline-date-col: 9rem;
+  --timeline-date-col: 8rem;
   --timeline-rail-width: 18px;
   --timeline-date-color: #c5d4e6;
   --timeline-logo-box: 3.5rem;
@@ -815,7 +815,8 @@ code {
 @media (min-width: 768px) {
   .timeline__item-top,
   .timeline__item-bottom {
-    grid-template-columns: var(--timeline-date-col) var(--timeline-rail-width) minmax(0, 1fr);
+    grid-template-columns: minmax(var(--timeline-date-col), var(--timeline-date-col))
+      var(--timeline-rail-width) minmax(0, 1fr);
     column-gap: 1rem;
   }
 }
@@ -881,8 +882,11 @@ code {
   .timeline__date-gutter {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    min-width: 0;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: var(--timeline-date-col);
+    box-sizing: border-box;
+    padding-right: 1rem;
   }
 
   .timeline__gutter-spacer {
@@ -917,7 +921,8 @@ code {
 
 .timeline__dates--side {
   display: block;
-  text-align: end;
+  width: 100%;
+  text-align: start;
 }
 
 .timeline__dates--stacked {
