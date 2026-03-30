@@ -81,6 +81,104 @@ function escapeHtml(s: string): string {
     .replace(/"/g, '&quot;')
 }
 
+/** Career timeline — rendered as static HTML for the Career Path section. */
+const careerTimelineHtml = `
+    <section id="career-path" class="section section-career section-surface" aria-labelledby="career-heading">
+      <div class="prose prose--career">
+        <h2 id="career-heading" class="section-heading">Career Path</h2>
+        <p class="career-lead">Professional experience and progression across product, engineering, and technology leadership</p>
+        <h3 class="career-experience-title" id="career-experience">Experience</h3>
+        <div class="timeline">
+          <article class="timeline__item">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <div class="timeline__content">
+              <h4 class="timeline__company"><a href="https://www.linkedin.com/company/notraffic/" target="_blank" rel="noopener noreferrer">NoTraffic</a></h4>
+              <p class="timeline__role">Senior Product Line Manager — Mobility Platform</p>
+              <p class="timeline__meta"><time datetime="2024-10">Oct 2024</time> – Present · <span class="timeline__duration">1 yr 6 mos</span></p>
+              <div class="timeline__body">
+                <p>NoTraffic builds a leading mobility platform that digitizes the backbone of transportation and streamlines next-generation traffic operations. Its end-to-end platform uses AI and edge computing to turn signalized intersections into cloud-connected hubs that classify road users—vehicles, transit, emergency services, pedestrians—and respond in real time to improve travel time, emissions, and safety.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline__item">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <div class="timeline__content">
+              <h4 class="timeline__company"><a href="https://www.linkedin.com/company/radware/" target="_blank" rel="noopener noreferrer">Radware</a></h4>
+              <p class="timeline__role">Director of Product Management</p>
+              <p class="timeline__employment">Full-time</p>
+              <p class="timeline__meta"><time datetime="2021-11">Nov 2021</time> – <time datetime="2024-10">Oct 2024</time> · <span class="timeline__duration">3 yrs</span></p>
+              <div class="timeline__tags"><span class="timeline__tag">Strategic partnerships</span><span class="timeline__tag">Cybersecurity</span></div>
+              <div class="timeline__body">
+                <p>Led product management in cybersecurity—spanning strategy, strategic partnerships, and cross-functional execution from roadmap to launch.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline__item timeline__item--major">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <div class="timeline__content">
+              <h4 class="timeline__company"><a href="https://www.linkedin.com/company/motorolasolutions/" target="_blank" rel="noopener noreferrer">Motorola Solutions</a></h4>
+              <p class="timeline__meta timeline__meta--range"><time datetime="1999-11">Nov 1999</time> – <time datetime="2021-11">Nov 2021</time> · <span class="timeline__duration">22 yrs 1 mo</span></p>
+              <div class="timeline__body">
+                <p>Two decades of progression across engineering, hardware leadership, product management, and portfolio strategy in public safety and mobile communications.</p>
+              </div>
+
+              <div class="timeline__nested" role="group" aria-label="Roles at Motorola Solutions">
+                <div class="timeline__nested-block">
+                  <p class="timeline__role">Senior Product Manager — LTE Mobile Devices Portfolio</p>
+                  <p class="timeline__meta"><time datetime="2019-05">May 2019</time> – <time datetime="2021-11">Nov 2021</time> · <span class="timeline__duration">2 yrs 7 mos</span></p>
+                  <div class="timeline__tags"><span class="timeline__tag">Strategic partnerships</span><span class="timeline__tag">Hardware</span></div>
+                  <ul class="timeline__bullets">
+                    <li>Global product leadership for strategy, business development, roadmap, positioning, GTM, and backlog—supporting sustained growth.</li>
+                    <li>Translated public-safety customer needs into MRDs, business plans, training, and product characterization.</li>
+                    <li>Owned rugged LTE smartphone and in-vehicle lines; grew mobile app partnerships to extend reach and share.</li>
+                    <li>Defined and owned a Unify SDK adopted by 5+ internal Motorola apps and external partners to standardize workflows.</li>
+                    <li>Combined market insight from surveys, sales feedback, and 10+ global trade events per year.</li>
+                    <li>Aligned PM peers to sharpen cross-platform value and prioritize 100+ cross-platform epics annually.</li>
+                    <li>Ran Agile delivery with architecture and engineering—timelines, budgets, releases, and schedules.</li>
+                    <li>Partnered with Motorola Solutions Venture Capital on Israeli startups and integrations into the portfolio.</li>
+                  </ul>
+                </div>
+
+                <div class="timeline__nested-block">
+                  <p class="timeline__role">Product Manager — In-Vehicle Broadband Solutions</p>
+                  <p class="timeline__meta"><time datetime="2017-01">Jan 2017</time> – <time datetime="2019-05">May 2019</time> · <span class="timeline__duration">2 yrs 5 mos</span></p>
+                  <div class="timeline__tags"><span class="timeline__tag">Hardware</span><span class="timeline__tag">Hardware product management</span></div>
+                  <ul class="timeline__bullets">
+                    <li>Product characterization and documentation: user stories, epics, MRDs, and business plans.</li>
+                    <li>End-to-end in-vehicle strategy and business development.</li>
+                  </ul>
+                </div>
+
+                <div class="timeline__nested-block">
+                  <p class="timeline__role">Technical Engineering Manager — Public Safety Broadband Encrypted Devices</p>
+                  <p class="timeline__meta"><time datetime="2014-01">Jan 2014</time> – <time datetime="2017-12">Dec 2017</time> · <span class="timeline__duration">4 yrs</span></p>
+                  <div class="timeline__tags"><span class="timeline__tag">Hardware</span></div>
+                  <ul class="timeline__bullets">
+                    <li>Led the hardware organization delivering a secured Android smartphone to strengthen market position.</li>
+                    <li>Guided multidisciplinary teams from kickoff through customer launch.</li>
+                    <li>Coordinated 3+ global development centers across management levels to improve execution.</li>
+                    <li>Supported development-to-production handoff across 4+ factories with strong QA.</li>
+                    <li>Primary interface for vendors, suppliers, and production on design and materials.</li>
+                    <li>Onboarded and trained 20+ new hires per year.</li>
+                  </ul>
+                </div>
+
+                <div class="timeline__nested-block">
+                  <p class="timeline__role">Hardware Engineer, Team Leader &amp; RF Group Manager — Public Safety Encrypted Devices</p>
+                  <p class="timeline__meta"><time datetime="1999-11">Nov 1999</time> – <time datetime="2014-01">Jan 2014</time> · <span class="timeline__duration">14 yrs 3 mos</span></p>
+                  <div class="timeline__tags"><span class="timeline__tag">Hardware</span></div>
+                  <p class="timeline__body-text">Hands-on hardware, RF, and leadership for encrypted public-safety devices—design through manufacturing partnership.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+`
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div class="ambient-bg" aria-hidden="true">
     <div class="ambient-glow ambient-glow--cyan"></div>
@@ -91,6 +189,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
       <a href="#panels" data-tab="bio" id="nav-bio" class="nav-link">Bio</a>
+      <a href="#career-path">Career Path</a>
       <a href="#panels" data-tab="blog" id="nav-blog" class="nav-link">Blog</a>
       <a href="#contact">Contact Me</a>
     </nav>
@@ -190,6 +289,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         </div>
       </div>
     </div>
+
+    ${careerTimelineHtml}
 
     <section id="contact" class="section section-tint section-contact" aria-labelledby="contact-title">
       <div class="prose prose--contact">
