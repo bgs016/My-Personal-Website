@@ -93,7 +93,7 @@ const careerTimelineHtml = `
             <span class="timeline__dot" aria-hidden="true"></span>
             <div class="timeline__content">
               <h4 class="timeline__company">
-                <img class="timeline__company-logo" src="/logos/notraffic.png" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                <img class="timeline__company-logo" src="/logos/notraffic.png" alt="" width="226" height="256" loading="lazy" decoding="async" />
                 <a href="https://www.linkedin.com/company/notraffic/" target="_blank" rel="noopener noreferrer">NoTraffic</a>
               </h4>
               <p class="timeline__role">Senior Product Line Manager, Mobility Platform</p>
@@ -114,7 +114,7 @@ const careerTimelineHtml = `
             <span class="timeline__dot" aria-hidden="true"></span>
             <div class="timeline__content">
               <h4 class="timeline__company">
-                <img class="timeline__company-logo" src="/logos/radware.png" alt="" width="120" height="40" loading="lazy" decoding="async" />
+                <img class="timeline__company-logo" src="/logos/radware.png" alt="" width="881" height="256" loading="lazy" decoding="async" />
                 <a href="https://www.linkedin.com/company/radware/" target="_blank" rel="noopener noreferrer">Radware</a>
               </h4>
               <p class="timeline__role">Director of Product Management</p>
@@ -135,7 +135,7 @@ const careerTimelineHtml = `
             <span class="timeline__dot" aria-hidden="true"></span>
             <div class="timeline__content">
               <h4 class="timeline__company">
-                <img class="timeline__company-logo" src="/logos/motorola-solutions.png" alt="" width="120" height="40" loading="lazy" decoding="async" />
+                <img class="timeline__company-logo" src="/logos/motorola-solutions.png" alt="" width="516" height="256" loading="lazy" decoding="async" />
                 <a href="https://www.linkedin.com/company/motorolasolutions/" target="_blank" rel="noopener noreferrer">Motorola Solutions</a>
               </h4>
               <p class="timeline__role timeline__role--era">Product, Engineering, and Technology Leadership</p>

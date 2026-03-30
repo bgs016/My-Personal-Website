@@ -831,7 +831,7 @@ code {
   flex-shrink: 0;
   height: 2.5rem;
   width: auto;
-  max-width: 7.75rem;
+  max-width: min(100%, 18rem);
   border-radius: 0;
   background: transparent;
   object-fit: contain;
@@ -1070,7 +1070,7 @@ code {
 
   .timeline__company-logo {
     height: 2.25rem;
-    max-width: 6.5rem;
+    max-width: min(100%, 15rem);
   }
 
   .career-lead {
