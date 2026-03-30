@@ -103,15 +103,19 @@ function renderBlogBody(): string {
                 return `
             <li class="blog-toc__item">
               <a class="blog-toc__link" href="#blog-post-${slug}">
-                <span class="blog-toc__link-text">${escapeHtml(post.title)}</span>
-                <span class="blog-toc__link-arrow" aria-hidden="true">
-                  <svg class="blog-toc__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+                <span class="blog-toc__link-body">
+                  <span class="blog-toc__link-title-row">
+                    <span class="blog-toc__link-text">${escapeHtml(post.title)}</span>
+                    <span class="blog-toc__link-arrow" aria-hidden="true">
+                      <svg class="blog-toc__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+                    </span>
+                  </span>
+                  <span class="blog-toc__meta">
+                    <span class="blog-toc__cat blog-cat blog-cat--${catClass}">${escapeHtml(post.category)}</span>
+                    <span class="blog-toc__date">${escapeHtml(post.date)}</span>
+                  </span>
                 </span>
               </a>
-              <span class="blog-toc__meta">
-                <span class="blog-toc__cat blog-cat blog-cat--${catClass}">${escapeHtml(post.category)}</span>
-                <span class="blog-toc__date">${escapeHtml(post.date)}</span>
-              </span>
             </li>`
               })
               .join('')}
