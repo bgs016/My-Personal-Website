@@ -1,6 +1,7 @@
 :root {
   color-scheme: dark;
-  --timeline-date-col: 7.25rem;
+  --timeline-date-col: 9rem;
+  --timeline-date-color: #c5d4e6;
   --bg: #0f172a;
   --bg-elevated: #1e293b;
   --bg-card: rgba(30, 41, 59, 0.7);
@@ -855,22 +856,21 @@ code {
 
 .timeline__date-range {
   margin: 0;
-  font-size: 0.75rem;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 1.45;
-  color: var(--text-muted);
+  line-height: 1.35;
+  color: var(--timeline-date-color);
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 .timeline__dates--side .timeline__date-range {
-  font-size: 0.75rem;
-  opacity: 0.92;
+  color: var(--timeline-date-color);
 }
 
 .timeline__dates--stacked .timeline__date-range {
-  font-size: 0.8125rem;
-  opacity: 0.95;
+  color: var(--timeline-date-color);
+  opacity: 0.96;
 }
 
 .timeline__company {
@@ -907,6 +907,11 @@ code {
 .timeline__logo-wrap--radware .timeline__company-logo {
   max-width: 72%;
   max-height: 72%;
+}
+
+.timeline__logo-wrap--motorola .timeline__company-logo {
+  max-width: 56%;
+  max-height: 56%;
 }
 
 .timeline__company a {

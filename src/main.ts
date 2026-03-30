@@ -160,7 +160,7 @@ const careerTimelineHtml = `
                 <span class="timeline__date-range"><time datetime="1999-11">Nov 1999</time> – <time datetime="2021-11">Nov 2021</time></span>
               </p>
               <h4 class="timeline__company">
-                <span class="timeline__logo-wrap">
+                <span class="timeline__logo-wrap timeline__logo-wrap--motorola">
                   <img class="timeline__company-logo" src="/logos/motorola-solutions.png" alt="" width="516" height="256" loading="lazy" decoding="async" />
                 </span>
                 <a href="https://www.linkedin.com/company/motorolasolutions/" target="_blank" rel="noopener noreferrer">Motorola Solutions</a>
