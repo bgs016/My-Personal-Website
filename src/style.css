@@ -48,16 +48,27 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  /* Prevent long URLs / patent IDs from forcing horizontal scroll */
+  overflow-wrap: break-word;
 }
 
 #app {
   min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   position: relative;
+  width: 100%;
+  max-width: 100vw;
+  min-width: 0;
 }
 
 .ambient-bg {
@@ -99,6 +110,9 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100svh;
+  min-height: 100dvh;
+  min-width: 0;
+  width: 100%;
 }
 
 @keyframes fadeInUp {
@@ -205,8 +219,29 @@ body {
   outline-offset: 3px;
 }
 
+@media (max-width: 767px) {
+  .site-header {
+    min-height: var(--header-h);
+    height: auto;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .nav {
+    gap: 0.35rem 0.65rem;
+  }
+
+  .nav a {
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+    padding: 0.45rem 0.95rem;
+  }
+}
+
 main {
   flex: 1;
+  min-width: 0;
+  width: 100%;
   /* Keeps last lines of Bio / main content scrollable above the fixed contact dock */
   padding-bottom: var(--dock-clearance);
 }
@@ -215,18 +250,20 @@ main {
   max-width: var(--content-max);
   margin: 0 auto;
   padding: clamp(1.75rem, 4.5vw, 3rem) var(--section-pad-x) clamp(2rem, 5vw, 3rem);
+  width: 100%;
+  min-width: 0;
 }
 
 .intro-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(1.5rem, 3.5vw, 2.25rem);
   align-items: start;
 }
 
 @media (min-width: 768px) {
   .intro-grid {
-    grid-template-columns: 1fr minmax(188px, 242px);
+    grid-template-columns: minmax(0, 1fr) minmax(188px, 242px);
     gap: clamp(1.75rem, 3.5vw, 2.75rem);
     align-items: center;
   }
@@ -237,6 +274,8 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  min-width: 0;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -357,6 +396,9 @@ code {
   padding:
     clamp(2rem, 4.5vw, 3.25rem) var(--section-pad-x)
     calc(var(--section-gap) * 1.12 + var(--dock-h) * 0.55);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .section-surface {
@@ -371,6 +413,7 @@ code {
 
 .prose {
   max-width: var(--prose-max);
+  min-width: 0;
 }
 
 .prose--bio {
@@ -494,12 +537,14 @@ code {
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   color: var(--heading);
+  overflow-wrap: anywhere;
 }
 
 .patent-list__title {
   margin: 0 0 0.35rem;
   color: var(--text);
   line-height: 1.45;
+  overflow-wrap: break-word;
 }
 
 .patent-list__detail {
@@ -750,6 +795,8 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
   color: var(--text-muted);
   transition:
     color 0.2s ease,
@@ -778,5 +825,17 @@ code {
   .contact-dock__icon {
     width: 2rem;
     height: 2rem;
+  }
+
+  .contact-dock__link {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+  }
+}
+
+/* Laptop / small desktop: keep content readable without ultra-wide lines */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  :root {
+    --content-max: 1040px;
   }
 }
