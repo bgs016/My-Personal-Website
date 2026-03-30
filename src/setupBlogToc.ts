@@ -8,7 +8,7 @@ export function setupBlogToc(): () => void {
   if (!toc || !btn) return () => {}
 
   const setBackTocVisible = (visible: boolean) => {
-    btn.classList.toggle('blog-back-toc--visible', visible)
+    btn.classList.toggle('fab--visible', visible)
     btn.setAttribute('aria-hidden', String(!visible))
     if (visible) btn.removeAttribute('tabindex')
     else btn.setAttribute('tabindex', '-1')
@@ -24,7 +24,8 @@ export function setupBlogToc(): () => void {
   observer.observe(toc)
 
   const onBtnClick = () => {
-    toc.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    toc.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })
     toc.focus({ preventScroll: true })
   }
   btn.addEventListener('click', onBtnClick)

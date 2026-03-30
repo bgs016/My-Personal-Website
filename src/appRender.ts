@@ -9,6 +9,7 @@ import {
   PROFILE_IMG_SRC,
   year,
 } from './siteData'
+import { setupBackToTop } from './setupBackToTop'
 import { setupBlogToc } from './setupBlogToc'
 import { blogPostSlug, escapeHtml } from './utils/html'
 import { hrefForRoute, pathnameToRoute, type SiteRoute } from './routes'
@@ -21,6 +22,7 @@ const PAGE_TITLES: Record<SiteRoute, string> = {
 }
 
 let blogTocCleanup: (() => void) | null = null
+let backToTopCleanup: (() => void) | null = null
 
 function renderPatentsList(): string {
   return patentPublications
@@ -100,7 +102,12 @@ function renderBlogBody(): string {
                 const catClass = post.category === 'Product management' ? 'pm' : 'be'
                 return `
             <li class="blog-toc__item">
-              <a class="blog-toc__link" href="#blog-post-${slug}">${escapeHtml(post.title)}</a>
+              <a class="blog-toc__link" href="#blog-post-${slug}">
+                <span class="blog-toc__link-text">${escapeHtml(post.title)}</span>
+                <span class="blog-toc__link-arrow" aria-hidden="true">
+                  <svg class="blog-toc__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+                </span>
+              </a>
               <span class="blog-toc__meta">
                 <span class="blog-toc__cat blog-cat blog-cat--${catClass}">${escapeHtml(post.category)}</span>
                 <span class="blog-toc__date">${escapeHtml(post.date)}</span>
@@ -174,7 +181,7 @@ function renderBlogBackButton(): string {
   return `
   <button
     type="button"
-    class="blog-back-toc"
+    class="fab fab--blog-toc blog-back-toc"
     id="blog-back-toc"
     aria-hidden="true"
     tabindex="-1"
@@ -185,6 +192,20 @@ function renderBlogBackButton(): string {
       <path d="M4 6h16M4 12h10M4 18h16" />
     </svg>
     <span class="blog-back-toc__label">Back to Contents</span>
+  </button>`
+}
+
+function renderBackToTopButton(): string {
+  return `
+  <button
+    type="button"
+    class="fab fab--back-top"
+    id="back-to-top"
+    aria-hidden="true"
+    tabindex="-1"
+    aria-label="Back to the top"
+  >
+    <span class="fab__label">Back to the top</span>
   </button>`
 }
 
@@ -230,7 +251,7 @@ function renderHeader(): string {
     { route: 'contact', label: 'Contact Me' },
   ]
   return `
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <nav class="nav" aria-label="Primary">
       ${links
         .map(
@@ -301,6 +322,8 @@ function scrollToBlogPostIfHash(): void {
 export function mountApp(): void {
   blogTocCleanup?.()
   blogTocCleanup = null
+  backToTopCleanup?.()
+  backToTopCleanup = null
 
   const route = pathnameToRoute(location.pathname)
   const app = document.querySelector<HTMLDivElement>('#app')!
@@ -315,6 +338,7 @@ export function mountApp(): void {
   ${renderMain(route)}
   ${renderFooter()}
   </div>
+  ${route !== 'blog' ? renderBackToTopButton() : ''}
   ${route === 'blog' ? renderBlogBackButton() : ''}
   ${renderContactDock()}
   `
@@ -330,6 +354,7 @@ export function mountApp(): void {
       window.scrollTo({ top: 0, behavior: 'auto' })
     }
   } else {
+    backToTopCleanup = setupBackToTop()
     window.scrollTo({ top: 0, behavior: 'auto' })
   }
 }
