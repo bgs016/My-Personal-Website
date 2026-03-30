@@ -90,7 +90,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div class="page-layer">
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
-      <a href="#top">Home</a>
       <a href="#panels" data-tab="bio" id="nav-bio" class="nav-link">Bio</a>
       <a href="#panels" data-tab="blog" id="nav-blog" class="nav-link">Blog</a>
       <a href="#contact">Contact</a>
