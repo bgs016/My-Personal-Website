@@ -32,6 +32,8 @@
   /* Comfortable reading measure for paragraph-heavy copy only */
   --read-max: 62ch;
   --read-max-relaxed: 68ch;
+  /* Bio + blog intro: wider than --read-max, still bounded for readability */
+  --read-max-wide: 72ch;
   --section-pad-x: clamp(1.5rem, 4vw, 2rem);
   --section-gap: clamp(2.5rem, 6vw, 4rem);
   --header-h: 64px;
@@ -52,6 +54,7 @@
   :root {
     --read-max: 63ch;
     --read-max-relaxed: 70ch;
+    --read-max-wide: 76ch;
     --timeline-logo-box: 4rem;
   }
 }
@@ -60,6 +63,7 @@
   :root {
     --read-max: 64ch;
     --read-max-relaxed: 72ch;
+    --read-max-wide: 80ch;
   }
 }
 
@@ -490,6 +494,10 @@ code {
   max-width: min(var(--read-max-relaxed), 100%);
 }
 
+.read-stack--wide {
+  max-width: min(var(--read-max-wide), 100%);
+}
+
 .prose {
   max-width: 100%;
   min-width: 0;
@@ -628,7 +636,7 @@ code {
   font-size: 0.9375rem;
   color: var(--text-body);
   opacity: 0.92;
-  max-width: min(var(--read-max), 100%);
+  max-width: min(var(--read-max-wide), 100%);
 }
 
 .patent-list__links {
@@ -719,16 +727,15 @@ code {
   gap: 0.4rem;
 }
 
+/* Inline title + arrow so the chevron sits next to the title, not at the row’s far edge */
 .blog-toc__link-title-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.45rem;
+  display: block;
+  line-height: 1.45;
   min-width: 0;
 }
 
 .blog-toc__link-text {
-  flex: 1;
-  min-width: 0;
+  display: inline;
   font-weight: 600;
   color: var(--text);
   text-decoration: none;
@@ -736,11 +743,12 @@ code {
 }
 
 .blog-toc__link-arrow {
+  display: inline-flex;
   flex-shrink: 0;
-  display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0.12em;
+  vertical-align: middle;
+  margin-left: 0.4rem;
   opacity: 0.5;
   color: rgba(6, 182, 212, 0.85);
   transition:
@@ -1022,12 +1030,6 @@ code {
   line-height: 1.62;
   color: var(--text-body);
   text-align: start;
-}
-
-@media (min-width: 1024px) {
-  .blog-excerpt {
-    max-width: min(var(--read-max-relaxed), 100%);
-  }
 }
 
 .blog-body {

@@ -53,7 +53,7 @@ function renderIntro(): string {
         <div class="intro-copy">
           <h1 id="intro-title">Guy <span class="name-accent">Shimon</span></h1>
           <p class="hero-lead">Senior product leader in AI, complex HW/SW products, and product strategy.</p>
-          <p class="hero-tags">Product Management · Behavioral Economics · Inventor on 3 patents</p>
+          <p class="hero-tags">Product Management · Behavioral Economics · Electrical Engineering · Inventor on 3 patents</p>
         </div>
         <div class="intro-visual">
           <div class="profile-frame">
@@ -74,15 +74,15 @@ function renderBioSection(): string {
   return `
     <div class="page-section section-surface">
       <div class="prose prose--bio">
-        <div class="read-stack">
+        <div class="read-stack--wide">
           <h2 class="panel-title" id="panel-heading-bio">Bio</h2>
           ${bioParagraphs.map((p) => `<p class="panel-text">${p}</p>`).join('')}
         </div>
-        <div class="read-stack">
+        <div class="read-stack--wide">
           <h3 class="patents-heading">Patents</h3>
           ${patentIntroParagraphs.map((p) => `<p class="panel-text">${p}</p>`).join('')}
         </div>
-        <h4 class="patents-subheading read-stack">Selected Patent Publications</h4>
+        <h4 class="patents-subheading read-stack--wide">Selected Patent Publications</h4>
         <ul class="patent-list">
           ${renderPatentsList()}
         </ul>
@@ -93,7 +93,7 @@ function renderBioSection(): string {
 function renderBlogBody(): string {
   return `
         <div class="prose prose--blog">
-        <div class="read-stack--relaxed">
+        <div class="read-stack--wide">
           <h2 class="panel-title" id="panel-heading-blog">Blog</h2>
           <p class="panel-lead">
             Notes on <strong>product management</strong> and <strong>behavioral economics</strong> — frameworks, trade-offs, and field notes from building complex products.
@@ -142,7 +142,7 @@ function renderBlogBody(): string {
               <p class="blog-excerpt">${escapeHtml(post.excerpt)}</p>
               ${
                 post.bodyParagraphs?.length
-                  ? `<div class="blog-body read-stack">${post.bodyParagraphs.map((para) => `<p class="blog-body__p">${escapeHtml(para)}</p>`).join('')}</div>`
+                  ? `<div class="blog-body">${post.bodyParagraphs.map((para) => `<p class="blog-body__p">${escapeHtml(para)}</p>`).join('')}</div>`
                   : ''
               }
             </li>`
