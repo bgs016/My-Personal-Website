@@ -6,10 +6,12 @@ import { defineConfig } from 'vite'
 /**
  * GitHub Pages project sites are served at https://<user>.github.io/<repo>/
  * Vite must use base=/repo/ so /assets/* resolves under the repo (otherwise CSS/JS 404).
- * Vercel/Netlify/Cloudflare host at domain root — keep base=/.
+ *
+ * Vercel/Netlify/Cloudflare: always base=/ (root). Only use repo subpath on GitHub Actions
+ * (GITHUB_ACTIONS=true), so a stray GITHUB_REPOSITORY env on Vercel cannot break the build.
  */
 function resolveBase(): string {
-  if (process.env.VERCEL || process.env.NETLIFY || process.env.CF_PAGES) {
+  if (process.env.VERCEL || process.env.VERCEL_ENV || process.env.NETLIFY || process.env.CF_PAGES) {
     return '/'
   }
 
@@ -18,10 +20,12 @@ function resolveBase(): string {
     return explicit.endsWith('/') ? explicit : `${explicit}/`
   }
 
-  const gh = process.env.GITHUB_REPOSITORY
-  if (gh) {
-    const repo = gh.split('/')[1]
-    if (repo) return `/${repo}/`
+  if (process.env.GITHUB_ACTIONS === 'true') {
+    const gh = process.env.GITHUB_REPOSITORY
+    if (gh) {
+      const repo = gh.split('/')[1]
+      if (repo) return `/${repo}/`
+    }
   }
 
   return '/'
