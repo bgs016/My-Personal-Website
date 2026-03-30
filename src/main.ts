@@ -92,7 +92,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <nav class="nav" aria-label="Primary">
       <a href="#panels" data-tab="bio" id="nav-bio" class="nav-link">Bio</a>
       <a href="#panels" data-tab="blog" id="nav-blog" class="nav-link">Blog</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact">Contact Me</a>
     </nav>
   </header>
   <main id="main" class="main-animate">
@@ -193,7 +193,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
     <section id="contact" class="section section-tint section-contact" aria-labelledby="contact-title">
       <div class="prose prose--contact">
-      <h2 id="contact-title" class="section-heading">Contact</h2>
+      <h2 id="contact-title" class="section-heading">Contact Me</h2>
       <p class="panel-text">Best place to connect is LinkedIn — email and phone below are also on my public profile.</p>
       <ul class="contact-list">
         <li><a href="https://www.linkedin.com/in/guy-shimon-2b99585/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
