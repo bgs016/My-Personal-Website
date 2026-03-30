@@ -90,94 +90,128 @@ const careerTimelineHtml = `
         <h3 class="career-experience-title" id="career-experience">Experience</h3>
         <div class="timeline">
           <article class="timeline__item">
-            <aside class="timeline__dates timeline__dates--side" aria-label="Dates">
-              <p class="timeline__date-range"><time datetime="2024-10">Oct 2024</time><span class="timeline__date-sep"> </span>–<span class="timeline__date-sep"> </span>Present</p>
-            </aside>
-            <div class="timeline__panel">
-              <span class="timeline__dot" aria-hidden="true"></span>
-              <div class="timeline__content">
-              <p class="timeline__dates timeline__dates--stacked">
-                <span class="timeline__date-range"><time datetime="2024-10">Oct 2024</time> – Present</span>
-              </p>
-              <h4 class="timeline__company">
-                <span class="timeline__logo-wrap">
-                  <img class="timeline__company-logo" src="/logos/notraffic.png" alt="" width="226" height="256" loading="lazy" decoding="async" />
-                </span>
-                <a href="https://www.linkedin.com/company/notraffic/" target="_blank" rel="noopener noreferrer">NoTraffic</a>
-              </h4>
-              <p class="timeline__role">Senior Product Line Manager, Mobility Platform</p>
-              <div class="timeline__body">
-                <p>Leading product strategy for AI- and edge-powered mobility infrastructure, focused on intelligent intersections, real-time traffic operations, and safer, more efficient urban mobility.</p>
+            <div class="timeline__item-top">
+              <div class="timeline__date-gutter">
+                <aside class="timeline__dates timeline__dates--side" aria-label="Dates">
+                  <p class="timeline__date-range"><time datetime="2024-10">Oct 2024</time><span class="timeline__date-sep"> </span>–<span class="timeline__date-sep"> </span>Present</p>
+                </aside>
               </div>
-              <details class="timeline__details" aria-label="Full description: NoTraffic">
-                <summary class="timeline__details-summary">Read more</summary>
-                <div class="timeline__details-body">
-                  <p>Lead product strategy for the Mobility Platform at NoTraffic, advancing AI- and edge-computing solutions for intelligent intersections and city-scale traffic operations. The platform transforms signalized intersections into cloud-connected, automated mobility hubs that detect, classify, and respond in real time to private vehicles, public transportation, emergency services, pedestrians, and other road users. The work is focused on improving traffic flow, reducing emissions, and strengthening road safety through smarter infrastructure.</p>
+              <div class="timeline__panel-head">
+                <span class="timeline__dot" aria-hidden="true"></span>
+                <div class="timeline__lead">
+                  <p class="timeline__dates timeline__dates--stacked">
+                    <span class="timeline__date-range"><time datetime="2024-10">Oct 2024</time> – Present</span>
+                  </p>
+                  <h4 class="timeline__company">
+                    <a class="timeline__company-link timeline__company-link--external" href="https://www.notraffic.com" target="_blank" rel="noopener noreferrer">
+                      <span class="timeline__logo-wrap">
+                        <img class="timeline__company-logo" src="/logos/notraffic.png" alt="" width="226" height="256" loading="lazy" decoding="async" />
+                      </span>
+                      <span class="timeline__company-name">NoTraffic</span>
+                    </a>
+                  </h4>
                 </div>
-              </details>
+              </div>
+            </div>
+            <div class="timeline__item-bottom">
+              <div class="timeline__gutter-spacer" aria-hidden="true"></div>
+              <div class="timeline__panel-body">
+                <div class="timeline__content">
+                  <p class="timeline__role">Senior Product Line Manager, Mobility Platform</p>
+                  <div class="timeline__body">
+                    <p>Leading product strategy for AI- and edge-powered mobility infrastructure, focused on intelligent intersections, real-time traffic operations, and safer, more efficient urban mobility.</p>
+                  </div>
+                  <details class="timeline__details" aria-label="Full description: NoTraffic">
+                    <summary class="timeline__details-summary">Read more</summary>
+                    <div class="timeline__details-body">
+                      <p>Lead product strategy for the Mobility Platform at NoTraffic, advancing AI- and edge-computing solutions for intelligent intersections and city-scale traffic operations. The platform transforms signalized intersections into cloud-connected, automated mobility hubs that detect, classify, and respond in real time to private vehicles, public transportation, emergency services, pedestrians, and other road users. The work is focused on improving traffic flow, reducing emissions, and strengthening road safety through smarter infrastructure.</p>
+                    </div>
+                  </details>
+                </div>
               </div>
             </div>
           </article>
 
           <article class="timeline__item">
-            <aside class="timeline__dates timeline__dates--side" aria-label="Dates">
-              <p class="timeline__date-range"><time datetime="2021-11">Nov 2021</time><span class="timeline__date-sep"> </span>–<span class="timeline__date-sep"> </span><time datetime="2024-10">Oct 2024</time></p>
-            </aside>
-            <div class="timeline__panel">
-              <span class="timeline__dot" aria-hidden="true"></span>
-              <div class="timeline__content">
-              <p class="timeline__dates timeline__dates--stacked">
-                <span class="timeline__date-range"><time datetime="2021-11">Nov 2021</time> – <time datetime="2024-10">Oct 2024</time></span>
-              </p>
-              <h4 class="timeline__company">
-                <span class="timeline__logo-wrap timeline__logo-wrap--radware">
-                  <img class="timeline__company-logo" src="/logos/radware.png" alt="" width="253" height="256" loading="lazy" decoding="async" />
-                </span>
-                <a href="https://www.linkedin.com/company/radware/" target="_blank" rel="noopener noreferrer">Radware</a>
-              </h4>
-              <p class="timeline__role">Director of Product Management</p>
-              <div class="timeline__body">
-                <p>Led product management in cybersecurity, spanning strategy, partnerships, and cross-functional execution in a complex enterprise environment.</p>
+            <div class="timeline__item-top">
+              <div class="timeline__date-gutter">
+                <aside class="timeline__dates timeline__dates--side" aria-label="Dates">
+                  <p class="timeline__date-range"><time datetime="2021-11">Nov 2021</time><span class="timeline__date-sep"> </span>–<span class="timeline__date-sep"> </span><time datetime="2024-10">Oct 2024</time></p>
+                </aside>
               </div>
-              <details class="timeline__details" aria-label="Full description: Radware">
-                <summary class="timeline__details-summary">Read more</summary>
-                <div class="timeline__details-body">
-                  <p>Led product management in a cybersecurity environment, with responsibility spanning product strategy, strategic partnerships, and cross-functional execution. Worked across business, technology, and market-facing functions to shape product direction, strengthen commercial positioning, and support delivery in a complex enterprise setting.</p>
+              <div class="timeline__panel-head">
+                <span class="timeline__dot" aria-hidden="true"></span>
+                <div class="timeline__lead">
+                  <p class="timeline__dates timeline__dates--stacked">
+                    <span class="timeline__date-range"><time datetime="2021-11">Nov 2021</time> – <time datetime="2024-10">Oct 2024</time></span>
+                  </p>
+                  <h4 class="timeline__company">
+                    <span class="timeline__logo-wrap timeline__logo-wrap--radware">
+                      <img class="timeline__company-logo" src="/logos/radware.png" alt="" width="253" height="256" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="timeline__company-name">Radware</span>
+                  </h4>
                 </div>
-              </details>
+              </div>
+            </div>
+            <div class="timeline__item-bottom">
+              <div class="timeline__gutter-spacer" aria-hidden="true"></div>
+              <div class="timeline__panel-body">
+                <div class="timeline__content">
+                  <p class="timeline__role">Director of Product Management</p>
+                  <div class="timeline__body">
+                    <p>Led product management in cybersecurity, spanning strategy, partnerships, and cross-functional execution in a complex enterprise environment.</p>
+                  </div>
+                  <details class="timeline__details" aria-label="Full description: Radware">
+                    <summary class="timeline__details-summary">Read more</summary>
+                    <div class="timeline__details-body">
+                      <p>Led product management in a cybersecurity environment, with responsibility spanning product strategy, strategic partnerships, and cross-functional execution. Worked across business, technology, and market-facing functions to shape product direction, strengthen commercial positioning, and support delivery in a complex enterprise setting.</p>
+                    </div>
+                  </details>
+                </div>
               </div>
             </div>
           </article>
 
           <article class="timeline__item timeline__item--major">
-            <aside class="timeline__dates timeline__dates--side" aria-label="Dates">
-              <p class="timeline__date-range"><time datetime="1999-11">Nov 1999</time><span class="timeline__date-sep"> </span>–<span class="timeline__date-sep"> </span><time datetime="2021-11">Nov 2021</time></p>
-            </aside>
-            <div class="timeline__panel">
-              <span class="timeline__dot" aria-hidden="true"></span>
-              <div class="timeline__content">
-              <p class="timeline__dates timeline__dates--stacked">
-                <span class="timeline__date-range"><time datetime="1999-11">Nov 1999</time> – <time datetime="2021-11">Nov 2021</time></span>
-              </p>
-              <h4 class="timeline__company">
-                <span class="timeline__logo-wrap timeline__logo-wrap--motorola">
-                  <img class="timeline__company-logo" src="/logos/motorola-solutions.png" alt="" width="516" height="256" loading="lazy" decoding="async" />
-                </span>
-                <a href="https://www.linkedin.com/company/motorolasolutions/" target="_blank" rel="noopener noreferrer">Motorola Solutions</a>
-              </h4>
-              <p class="timeline__role timeline__role--era">Product, Engineering, and Technology Leadership</p>
-              <div class="timeline__body">
-                <p>Progressed across engineering, hardware leadership, product management, and portfolio strategy in public safety and mobile communications.</p>
+            <div class="timeline__item-top">
+              <div class="timeline__date-gutter">
+                <aside class="timeline__dates timeline__dates--side" aria-label="Dates">
+                  <p class="timeline__date-range"><time datetime="1999-11">Nov 1999</time><span class="timeline__date-sep"> </span>–<span class="timeline__date-sep"> </span><time datetime="2021-11">Nov 2021</time></p>
+                </aside>
               </div>
-              <details class="timeline__details" aria-label="Full description: Motorola Solutions overview">
-                <summary class="timeline__details-summary">Read more</summary>
-                <div class="timeline__details-body">
-                  <p>Built a long-term career across engineering, hardware leadership, product management, and portfolio strategy in public safety and mobile communications. Progressed through increasingly senior roles spanning secure devices, broadband solutions, rugged LTE products, and strategic partnerships.</p>
+              <div class="timeline__panel-head">
+                <span class="timeline__dot" aria-hidden="true"></span>
+                <div class="timeline__lead">
+                  <p class="timeline__dates timeline__dates--stacked">
+                    <span class="timeline__date-range"><time datetime="1999-11">Nov 1999</time> – <time datetime="2021-11">Nov 2021</time></span>
+                  </p>
+                  <h4 class="timeline__company">
+                    <span class="timeline__logo-wrap timeline__logo-wrap--motorola">
+                      <img class="timeline__company-logo" src="/logos/motorola-solutions.png" alt="" width="516" height="256" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="timeline__company-name">Motorola Solutions</span>
+                  </h4>
                 </div>
-              </details>
+              </div>
+            </div>
+            <div class="timeline__item-bottom">
+              <div class="timeline__gutter-spacer" aria-hidden="true"></div>
+              <div class="timeline__panel-body">
+                <div class="timeline__content">
+                  <p class="timeline__role timeline__role--era">Product, Engineering, and Technology Leadership</p>
+                  <div class="timeline__body">
+                    <p>Progressed across engineering, hardware leadership, product management, and portfolio strategy in public safety and mobile communications.</p>
+                  </div>
+                  <details class="timeline__details" aria-label="Full description: Motorola Solutions overview">
+                    <summary class="timeline__details-summary">Read more</summary>
+                    <div class="timeline__details-body">
+                      <p>Built a long-term career across engineering, hardware leadership, product management, and portfolio strategy in public safety and mobile communications. Progressed through increasingly senior roles spanning secure devices, broadband solutions, rugged LTE products, and strategic partnerships.</p>
+                    </div>
+                  </details>
 
-              <div class="timeline__nested" role="group" aria-label="Roles at Motorola Solutions">
-                <div class="timeline__nested-block">
+                  <div class="timeline__nested" role="group" aria-label="Roles at Motorola Solutions">
+                    <div class="timeline__nested-block">
                   <p class="timeline__role">Senior Product Manager, LTE Mobile Devices Portfolio Manager</p>
                   <p class="timeline__meta"><time datetime="2019-05">May 2019</time> – <time datetime="2021-11">Nov 2021</time></p>
                   <div class="timeline__body">
@@ -200,9 +234,9 @@ const careerTimelineHtml = `
                       </ul>
                     </div>
                   </details>
-                </div>
+                    </div>
 
-                <div class="timeline__nested-block">
+                    <div class="timeline__nested-block">
                   <p class="timeline__role">Product Manager, In-Vehicle Broadband Solutions</p>
                   <p class="timeline__meta"><time datetime="2017-01">Jan 2017</time> – <time datetime="2019-05">May 2019</time></p>
                   <div class="timeline__body">
@@ -257,8 +291,9 @@ const careerTimelineHtml = `
                       <p>Held a series of engineering and team leadership roles across hardware and RF development for encrypted public safety devices. This period established a strong technical foundation in product development, systems thinking, and cross-functional execution that later supported the transition into broader product leadership roles.</p>
                     </div>
                   </details>
+                    </div>
+                  </div>
                 </div>
-              </div>
               </div>
             </div>
           </article>

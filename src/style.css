@@ -2,6 +2,7 @@
   color-scheme: dark;
   --timeline-date-col: 9rem;
   --timeline-date-color: #c5d4e6;
+  --timeline-logo-box: 3.5rem;
   --bg: #0f172a;
   --bg-elevated: #1e293b;
   --bg-card: rgba(30, 41, 59, 0.7);
@@ -49,6 +50,7 @@
   :root {
     --prose-max: 70ch;
     --prose-bio: 68ch;
+    --timeline-logo-box: 4rem;
   }
 }
 
@@ -789,26 +791,59 @@ code {
 }
 
 .timeline__item {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
   padding: 0 0 2.5rem;
-  align-items: start;
-}
-
-@media (min-width: 768px) {
-  .timeline__item {
-    grid-template-columns: var(--timeline-date-col) minmax(0, 1fr);
-    column-gap: 1rem;
-  }
 }
 
 .timeline__item:last-child {
   padding-bottom: 0;
 }
 
-.timeline__dates--side {
+.timeline__item-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.timeline__item-bottom {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .timeline__item-top,
+  .timeline__item-bottom {
+    grid-template-columns: var(--timeline-date-col) minmax(0, 1fr);
+  }
+}
+
+.timeline__date-gutter {
   display: none;
+}
+
+.timeline__gutter-spacer {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .timeline__date-gutter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+  }
+
+  .timeline__gutter-spacer {
+    display: block;
+    grid-column: 1;
+    pointer-events: none;
+  }
+}
+
+.timeline__dates--side {
+  display: block;
+  text-align: end;
 }
 
 .timeline__dates--stacked {
@@ -816,21 +851,22 @@ code {
 }
 
 @media (min-width: 768px) {
-  .timeline__dates--side {
-    display: block;
-    text-align: end;
-    padding-top: 0.35rem;
-  }
-
   .timeline__dates--stacked {
     display: none !important;
   }
 }
 
-.timeline__panel {
+.timeline__panel-head {
   position: relative;
   margin: 0;
   padding: 0 0 0 1.35rem;
+  border-left: 1px solid rgba(6, 182, 212, 0.22);
+  min-width: 0;
+}
+
+.timeline__panel-body {
+  margin: 0;
+  padding: 0.75rem 0 0 1.35rem;
   border-left: 1px solid rgba(6, 182, 212, 0.22);
   min-width: 0;
 }
@@ -852,6 +888,13 @@ code {
   width: 13px;
   height: 13px;
   left: calc(-7px - 0.5px);
+}
+
+.timeline__lead {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
 }
 
 .timeline__date-range {
@@ -877,7 +920,7 @@ code {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  margin: 0 0 0.35rem;
+  margin: 0;
   font-size: clamp(1.125rem, 2.2vw, 1.3125rem);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -885,13 +928,36 @@ code {
   min-width: 0;
 }
 
+.timeline__company-name {
+  color: var(--heading);
+}
+
+.timeline__company-link--external {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: var(--heading);
+  transition: color 0.15s ease;
+}
+
+.timeline__company-link--external:hover {
+  color: var(--accent);
+}
+
+.timeline__company-link--external:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 .timeline__logo-wrap {
   display: flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
+  width: var(--timeline-logo-box);
+  height: var(--timeline-logo-box);
   overflow: hidden;
 }
 
@@ -910,18 +976,8 @@ code {
 }
 
 .timeline__logo-wrap--motorola .timeline__company-logo {
-  max-width: 56%;
-  max-height: 56%;
-}
-
-.timeline__company a {
-  color: var(--heading);
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-
-.timeline__company a:hover {
-  color: var(--accent);
+  max-width: 50%;
+  max-height: 50%;
 }
 
 .timeline__role {
@@ -1126,7 +1182,8 @@ code {
     padding-bottom: 2rem;
   }
 
-  .timeline__panel {
+  .timeline__panel-head,
+  .timeline__panel-body {
     padding-left: 1.1rem;
   }
 
