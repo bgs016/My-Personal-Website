@@ -1818,7 +1818,7 @@ code {
   font-weight: 400;
   font-style: italic;
   line-height: 1.55;
-  color: var(--text-muted);
+  color: var(--heading);
   letter-spacing: 0.01em;
 }
 
@@ -1827,8 +1827,7 @@ code {
   font-size: 0.75rem;
   font-weight: 400;
   font-style: normal;
-  color: var(--text-muted);
-  opacity: 0.9;
+  color: var(--heading);
   letter-spacing: 0.03em;
 }
 
