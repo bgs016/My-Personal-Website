@@ -97,13 +97,11 @@ function renderBioSection(): string {
 function renderBlogBody(): string {
   return `
         <div class="prose prose--blog">
-        <div class="read-stack--wide">
           <h2 class="panel-title" id="panel-heading-blog">Blog</h2>
           <p class="panel-lead">
-            Reflections on product management and behavioral economics, shaped by strategy, decision-making, and hands-on experience building complex products.
+            Reflections on Product Management and Behavioral Economics, shaped by strategy, decision-making, and hands-on experience building complex products.
           </p>
-        </div>
-        <nav class="blog-toc" id="blog-toc" aria-labelledby="blog-toc-heading" tabindex="-1">
+          <nav class="blog-toc" id="blog-toc" aria-labelledby="blog-toc-heading" tabindex="-1">
           <h3 id="blog-toc-heading" class="blog-toc__heading">Table of Contents</h3>
           <ol class="blog-toc__list">
             ${blogPosts
@@ -130,8 +128,8 @@ function renderBlogBody(): string {
               })
               .join('')}
           </ol>
-        </nav>
-        <ul class="blog-list">
+          </nav>
+          <ul class="blog-list">
           ${blogPosts
             .map(
               (post) => {
@@ -153,7 +151,7 @@ function renderBlogBody(): string {
               },
             )
             .join('')}
-        </ul>
+          </ul>
         </div>`
 }
 
