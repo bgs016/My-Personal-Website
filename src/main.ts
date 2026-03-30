@@ -108,8 +108,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <img
               class="profile-img"
               src="${PROFILE_IMG_SRC}"
-              width="238"
-              height="238"
+              width="210"
+              height="210"
               alt="Guy Shimon"
             />
           </div>
@@ -124,7 +124,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         role="tabpanel"
         aria-labelledby="panel-heading-bio"
       >
-        <div class="prose">
+        <div class="prose prose--bio">
         <h2 class="panel-title" id="panel-heading-bio">Bio</h2>
         ${bioParagraphs.map((p) => `<p class="panel-text">${p}</p>`).join('')}
         <h3 class="patents-heading">Patents</h3>
@@ -209,7 +209,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 
   <div class="contact-dock" role="navigation" aria-label="Quick contact">
-    <div class="contact-dock__inner glass">
+    <div class="contact-dock__inner">
       <a
         href="https://www.linkedin.com/in/guy-shimon-2b99585/"
         target="_blank"
