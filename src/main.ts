@@ -91,7 +91,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
       <a href="#panels" data-tab="bio" id="nav-bio" class="nav-link">Bio</a>
-      <a href="#panels" data-tab="blog" id="nav-blog" class="nav-link">Blog</a>
+      <a href="#panels" data-tab="blog" id="nav-blog" class="nav-link">Writing</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -100,9 +100,22 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <div class="intro-grid">
         <div class="intro-copy">
           <h1 id="intro-title">Guy <span class="name-accent">Shimon</span></h1>
-          <button type="button" class="hero-card glow-hover" id="hero-scroll-panels" aria-label="Scroll to about sections">
-            <span class="hero-card__sub">Senior product leader focused on AI, complex HW/SW products, and product strategy in technology-driven environments.</span>
-          </button>
+          <p class="hero-lead">Senior product leader · AI, edge systems, and product strategy</p>
+          <p class="hero-cred">NoTraffic · Radware · Motorola Solutions</p>
+          <p class="hero-tags">Product Management · Behavioral Economics · Writing</p>
+          <p class="hero-meta">AI · Mobility · Inventor on 3 patents</p>
+          <nav class="hero-cta" aria-label="Explore this site">
+            <a href="#panels" data-tab="blog" class="hero-cta__link">Read writing</a>
+            <span class="hero-cta__sep" aria-hidden="true">·</span>
+            <a href="#panels" data-tab="bio" class="hero-cta__link">Bio &amp; patents</a>
+            <span class="hero-cta__sep" aria-hidden="true">·</span>
+            <a
+              href="https://www.linkedin.com/in/guy-shimon-2b99585/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hero-cta__link hero-cta__link--external"
+            >LinkedIn</a>
+          </nav>
         </div>
         <div class="intro-visual">
           <div class="profile-frame">
@@ -111,20 +124,21 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               src="${PROFILE_IMG_SRC}"
               width="238"
               height="238"
-              alt="Portrait"
+              alt="Guy Shimon"
             />
           </div>
         </div>
       </div>
     </section>
 
-    <div id="panels" class="tab-section">
+    <div id="panels" class="tab-section section-surface">
       <div
         class="tab-panel"
         id="panel-bio"
         role="tabpanel"
         aria-labelledby="panel-heading-bio"
       >
+        <div class="prose">
         <h2 class="panel-title" id="panel-heading-bio">Bio</h2>
         ${bioParagraphs.map((p) => `<p class="panel-text">${p}</p>`).join('')}
         <h3 class="patents-heading">Patents</h3>
@@ -151,6 +165,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             )
             .join('')}
         </ul>
+        </div>
       </div>
 
       <div
@@ -160,9 +175,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         aria-labelledby="panel-heading-blog"
         hidden
       >
-        <h2 class="panel-title" id="panel-heading-blog">Blog</h2>
-        <p class="panel-text">
-          Notes on <strong>product management</strong> and <strong>behavioral economics</strong> — frameworks, failures, and field notes from building.
+        <div class="prose prose--blog">
+        <h2 class="panel-title" id="panel-heading-blog">Writing</h2>
+        <p class="panel-lead">
+          Notes on <strong>product management</strong> and <strong>behavioral economics</strong> — frameworks, trade-offs, and field notes from building complex products.
         </p>
         <ul class="blog-list">
           ${blogPosts
@@ -185,17 +201,20 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             )
             .join('')}
         </ul>
+        </div>
       </div>
     </div>
 
-    <section id="contact" class="section section-tint" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact</h2>
+    <section id="contact" class="section section-tint section-contact" aria-labelledby="contact-title">
+      <div class="prose prose--contact">
+      <h2 id="contact-title" class="section-heading">Contact</h2>
       <p class="panel-text">Best place to connect is LinkedIn — email and phone below are also on my public profile.</p>
       <ul class="contact-list">
         <li><a href="https://www.linkedin.com/in/guy-shimon-2b99585/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
         <li><a href="mailto:romcarmel2@gmail.com">romcarmel2@gmail.com</a></li>
         <li><a href="${CONTACT_PHONE_HREF}">${CONTACT_PHONE_LABEL}</a></li>
       </ul>
+      </div>
     </section>
   </main>
   <footer class="site-footer">
@@ -289,7 +308,3 @@ function setupTabs(): void {
 }
 
 setupTabs()
-
-document.getElementById('hero-scroll-panels')?.addEventListener('click', () => {
-  document.getElementById('panels')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-})
