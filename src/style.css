@@ -1,6 +1,6 @@
 :root {
   color-scheme: dark;
-  --timeline-date-col: 8rem;
+  --timeline-date-col: 11rem;
   --timeline-rail-width: 18px;
   --timeline-date-color: #c5d4e6;
   --timeline-logo-box: 3.5rem;
@@ -977,6 +977,12 @@ code {
 
 .timeline__dates--side .timeline__date-range {
   color: var(--timeline-date-color);
+}
+
+@media (min-width: 768px) {
+  .timeline__dates--side .timeline__date-range {
+    white-space: nowrap;
+  }
 }
 
 .timeline__dates--stacked .timeline__date-range {
