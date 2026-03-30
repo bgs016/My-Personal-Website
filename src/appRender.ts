@@ -82,7 +82,7 @@ function renderBioSection(): string {
           ${bioParagraphs.map((p) => `<p class="panel-text">${p}</p>`).join('')}
         </div>
         <div class="read-stack--wide">
-          <h3 class="patents-heading">Patents</h3>
+          <h3 class="panel-title patents-heading">Patents</h3>
           ${patentIntroParagraphs.map((p) => `<p class="panel-text">${p}</p>`).join('')}
         </div>
         <h4 class="patents-subheading read-stack--wide">Selected Patent Publications</h4>

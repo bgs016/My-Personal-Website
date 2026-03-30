@@ -298,15 +298,28 @@ body {
     padding-bottom: 0.5rem;
   }
 
+  /* Single row: compact pills; horizontal scroll if viewport is too narrow */
   .nav {
-    gap: 0.35rem 0.65rem;
+    flex-wrap: nowrap;
+    gap: 0.25rem 0.4rem;
     justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
   }
 
   .nav a {
-    min-height: 2.75rem;
-    min-width: 2.75rem;
-    padding: 0.45rem 0.95rem;
+    flex: 0 0 auto;
+    min-height: 2.25rem;
+    min-width: 0;
+    padding: 0.3rem 0.5rem;
+    font-size: clamp(0.75rem, 3.2vw, 0.875rem);
+    white-space: nowrap;
   }
 }
 
@@ -625,14 +638,11 @@ code {
   text-decoration: underline;
 }
 
-.patents-heading {
-  margin: 2.5rem 0 0.85rem;
+/* Same type + cyan gradient rule as .panel-title (Bio); extra top rule for section break */
+.patents-heading.panel-title {
+  margin: 2.5rem 0 1.35rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
-  font-size: 1.1875rem;
-  font-weight: 700;
-  color: var(--heading);
-  letter-spacing: -0.02em;
 }
 
 .patents-subheading {
