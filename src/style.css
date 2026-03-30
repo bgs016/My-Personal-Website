@@ -431,6 +431,7 @@ code {
   border: 1px solid var(--border);
 }
 
+.page-section,
 .tab-section {
   scroll-margin-top: calc(var(--header-h) + 12px);
   max-width: var(--content-max);
@@ -441,6 +442,32 @@ code {
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
+}
+
+.page-main {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-main {
+    animation: pageMainEnter 0.38s ease-out;
+  }
+}
+
+@keyframes pageMainEnter {
+  from {
+    opacity: 0.86;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-main {
+    animation: none;
+  }
 }
 
 .section-surface {
@@ -627,6 +654,168 @@ code {
   gap: 1.25rem;
 }
 
+.blog-toc {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.15rem 1.1rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-left: 3px solid rgba(6, 182, 212, 0.35);
+  background: rgba(30, 41, 59, 0.45);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  scroll-margin-top: calc(var(--header-h) + 12px);
+}
+
+.blog-toc__heading {
+  margin: 0 0 0.85rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--heading);
+}
+
+.blog-toc__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.blog-toc__item {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: flex-start;
+}
+
+.blog-toc__link {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text);
+  text-decoration: none;
+  text-align: start;
+  transition: color 0.15s ease;
+}
+
+.blog-toc__link:hover {
+  color: var(--accent);
+}
+
+.blog-toc__link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.blog-toc__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.65rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.blog-toc__cat.blog-cat {
+  font-size: 0.6875rem;
+  padding: 0.12rem 0.45rem;
+}
+
+.blog-toc__date {
+  font-variant-numeric: tabular-nums;
+}
+
+.blog-back-toc {
+  position: fixed;
+  right: max(0.85rem, env(safe-area-inset-right));
+  bottom: calc(var(--dock-h) + max(0.65rem, env(safe-area-inset-bottom, 0px)));
+  z-index: 45;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(6, 182, 212, 0.22);
+  background: rgba(30, 41, 59, 0.92);
+  color: var(--text-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: var(--font);
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: 0 10px 28px -12px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition:
+    opacity 0.28s ease,
+    visibility 0.28s ease,
+    transform 0.28s ease;
+}
+
+.blog-back-toc--visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.blog-back-toc:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.blog-back-toc:hover {
+  color: var(--heading);
+  border-color: rgba(6, 182, 212, 0.35);
+}
+
+.blog-back-toc__icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  opacity: 0.88;
+}
+
+.blog-back-toc__label {
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .blog-back-toc__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .blog-back-toc {
+    justify-content: center;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    padding: 0.55rem;
+    border-radius: 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-back-toc {
+    transition: none;
+  }
+}
+
 .blog-card {
   position: relative;
   margin: 0;
@@ -638,6 +827,7 @@ code {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  scroll-margin-top: calc(var(--header-h) + 12px);
   transition:
     border-color 0.25s ease,
     box-shadow 0.25s ease,
