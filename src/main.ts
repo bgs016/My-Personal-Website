@@ -100,10 +100,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <div class="intro-grid">
         <div class="intro-copy">
           <h1 id="intro-title">Guy <span class="name-accent">Shimon</span></h1>
-          <p class="hero-lead">Senior product leader · AI, edge systems, and product strategy</p>
-          <p class="hero-cred">NoTraffic · Radware · Motorola Solutions</p>
-          <p class="hero-tags">Product Management · Behavioral Economics · Writing</p>
-          <p class="hero-meta">AI · Mobility · Inventor on 3 patents</p>
+          <p class="hero-lead">Senior product leader across AI, complex HW/SW products, and product strategy</p>
+          <p class="hero-tags">Product Management · Behavioral Economics · Inventor on 3 patents</p>
           <nav class="hero-cta" aria-label="Explore this site">
             <a href="#panels" data-tab="blog" class="hero-cta__link">Read writing</a>
             <span class="hero-cta__sep" aria-hidden="true">·</span>
