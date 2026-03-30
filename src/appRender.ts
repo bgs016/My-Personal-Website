@@ -74,11 +74,15 @@ function renderBioSection(): string {
   return `
     <div class="page-section section-surface">
       <div class="prose prose--bio">
-        <h2 class="panel-title" id="panel-heading-bio">Bio</h2>
-        ${bioParagraphs.map((p) => `<p class="panel-text">${p}</p>`).join('')}
-        <h3 class="patents-heading">Patents</h3>
-        ${patentIntroParagraphs.map((p) => `<p class="panel-text">${p}</p>`).join('')}
-        <h4 class="patents-subheading">Selected Patent Publications</h4>
+        <div class="read-stack">
+          <h2 class="panel-title" id="panel-heading-bio">Bio</h2>
+          ${bioParagraphs.map((p) => `<p class="panel-text">${p}</p>`).join('')}
+        </div>
+        <div class="read-stack">
+          <h3 class="patents-heading">Patents</h3>
+          ${patentIntroParagraphs.map((p) => `<p class="panel-text">${p}</p>`).join('')}
+        </div>
+        <h4 class="patents-subheading read-stack">Selected Patent Publications</h4>
         <ul class="patent-list">
           ${renderPatentsList()}
         </ul>
@@ -89,10 +93,12 @@ function renderBioSection(): string {
 function renderBlogBody(): string {
   return `
         <div class="prose prose--blog">
-        <h2 class="panel-title" id="panel-heading-blog">Blog</h2>
-        <p class="panel-lead">
-          Notes on <strong>product management</strong> and <strong>behavioral economics</strong> — frameworks, trade-offs, and field notes from building complex products.
-        </p>
+        <div class="read-stack--relaxed">
+          <h2 class="panel-title" id="panel-heading-blog">Blog</h2>
+          <p class="panel-lead">
+            Notes on <strong>product management</strong> and <strong>behavioral economics</strong> — frameworks, trade-offs, and field notes from building complex products.
+          </p>
+        </div>
         <nav class="blog-toc" id="blog-toc" aria-labelledby="blog-toc-heading" tabindex="-1">
           <h3 id="blog-toc-heading" class="blog-toc__heading">Table of Contents</h3>
           <ol class="blog-toc__list">
@@ -136,7 +142,7 @@ function renderBlogBody(): string {
               <p class="blog-excerpt">${escapeHtml(post.excerpt)}</p>
               ${
                 post.bodyParagraphs?.length
-                  ? `<div class="blog-body">${post.bodyParagraphs.map((para) => `<p class="blog-body__p">${escapeHtml(para)}</p>`).join('')}</div>`
+                  ? `<div class="blog-body read-stack">${post.bodyParagraphs.map((para) => `<p class="blog-body__p">${escapeHtml(para)}</p>`).join('')}</div>`
                   : ''
               }
             </li>`

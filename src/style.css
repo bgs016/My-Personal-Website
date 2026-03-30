@@ -27,9 +27,11 @@
   --shadow-soft: 0 0 26px rgba(6, 182, 212, 0.075);
   --font: 'Inter', system-ui, sans-serif;
   --max: 720px;
-  --prose-max: 65ch;
-  --prose-bio: 60ch;
+  /* Wide shell (nav, sections, cards, timelines) — unchanged */
   --content-max: 1120px;
+  /* Comfortable reading measure for paragraph-heavy copy only */
+  --read-max: 62ch;
+  --read-max-relaxed: 68ch;
   --section-pad-x: clamp(1.5rem, 4vw, 2rem);
   --section-gap: clamp(2.5rem, 6vw, 4rem);
   --header-h: 64px;
@@ -46,19 +48,18 @@
   -webkit-font-smoothing: antialiased;
 }
 
-/* Wider reading measure on tablet/desktop — more words per line without ultra-wide lines */
 @media (min-width: 768px) {
   :root {
-    --prose-max: 70ch;
-    --prose-bio: 68ch;
+    --read-max: 63ch;
+    --read-max-relaxed: 70ch;
     --timeline-logo-box: 4rem;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --prose-max: 74ch;
-    --prose-bio: 72ch;
+    --read-max: 64ch;
+    --read-max-relaxed: 72ch;
   }
 }
 
@@ -480,21 +481,25 @@ code {
   padding: 0;
 }
 
+/* Reading-width column inside wide page sections — use for long-form copy only */
+.read-stack {
+  max-width: min(var(--read-max), 100%);
+}
+
+.read-stack--relaxed {
+  max-width: min(var(--read-max-relaxed), 100%);
+}
+
 .prose {
-  max-width: var(--prose-max);
+  max-width: 100%;
   min-width: 0;
 }
 
-.prose--bio {
-  max-width: min(var(--prose-bio), 100%);
-}
-
-.prose--blog {
-  max-width: min(var(--prose-max), 52rem);
-}
-
-.prose--contact {
-  max-width: var(--prose-max);
+.prose--bio,
+.prose--blog,
+.prose--contact,
+.prose--career {
+  max-width: 100%;
 }
 
 .panel-lead {
@@ -623,6 +628,7 @@ code {
   font-size: 0.9375rem;
   color: var(--text-body);
   opacity: 0.92;
+  max-width: min(var(--read-max), 100%);
 }
 
 .patent-list__links {
@@ -1018,11 +1024,16 @@ code {
   text-align: start;
 }
 
+@media (min-width: 1024px) {
+  .blog-excerpt {
+    max-width: min(var(--read-max-relaxed), 100%);
+  }
+}
+
 .blog-body {
   margin-top: 1.15rem;
   padding-top: 1.15rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  max-width: var(--prose-max);
 }
 
 .blog-body__p {
@@ -1072,10 +1083,6 @@ code {
 .section-career {
   width: 100%;
   min-width: 0;
-}
-
-.prose--career {
-  max-width: min(74ch, 100%);
 }
 
 .career-lead {
@@ -1441,6 +1448,13 @@ code {
 
 .timeline__body-text {
   margin-top: 0.35rem;
+}
+
+@media (min-width: 1024px) {
+  .timeline__body,
+  .timeline__details-body {
+    max-width: min(var(--read-max), 100%);
+  }
 }
 
 .timeline__bullets {

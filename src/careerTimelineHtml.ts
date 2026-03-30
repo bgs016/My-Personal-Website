@@ -1,8 +1,10 @@
 export const careerTimelineHtml = `
     <section id="career-path" class="section section-career section-surface" aria-labelledby="career-heading">
       <div class="prose prose--career">
-        <h2 id="career-heading" class="section-heading">Career Path</h2>
-        <p class="career-lead">A progression across engineering, product management, and strategic product leadership in mobility, cybersecurity, and public safety technologies.</p>
+        <div class="read-stack">
+          <h2 id="career-heading" class="section-heading">Career Path</h2>
+          <p class="career-lead">A progression across engineering, product management, and strategic product leadership in mobility, cybersecurity, and public safety technologies.</p>
+        </div>
         <h3 class="career-experience-title" id="career-experience">Experience</h3>
         <div class="timeline">
           <article class="timeline__item">
