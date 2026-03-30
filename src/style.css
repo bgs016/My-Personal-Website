@@ -832,10 +832,10 @@ code {
   height: 2.5rem;
   width: auto;
   max-width: 7.75rem;
-  border-radius: 9px;
+  border-radius: 0;
+  background: transparent;
   object-fit: contain;
   object-position: left center;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .timeline__company a {
